@@ -12,5 +12,6 @@
     }else{
     	$controllerObj = $indexControl->loadController(DEFAULT_CONTROLLER);
     }
+    
     $indexControl->Action($controllerObj);
 ?>

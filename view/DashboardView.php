@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Alfred Home</title>
+    <title>Alfred's Home</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,8 +32,7 @@
         <nav class="navbar navbar-expand-sm navbar-default"> 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav" id="SideBar">
-                    <li class="active">
-                        <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    <li class="active" id="main-option">
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -50,26 +49,10 @@
         <header id="header" class="header">  
             <div class="top-left">
                 <div class="navbar-header"> 
-                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="images/logo.jpg" alt="Logo"></a>
                     <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> 
                 </div> 
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
-                        </div>
-                    </div> 
-                </div>  
             </div>
         </header><!-- /header -->
         <!-- Header-->
@@ -165,16 +148,6 @@
                         </div>
                     </div><!-- /.card -->
                 </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="card weather-box">
-                        <h4 class="weather-title box-title">Weather</h4>
-                        <div class="card-body">  
-                            <div class="weather-widget">
-                                <div id="weather-one" class="weather-one"></div>
-                            </div> 
-                        </div>
-                    </div><!-- /.card -->
-                </div>
             </div><!-- /.row -->
             <!-- Calender Chart Weather  End -->
         </div> <!-- .content -->
@@ -201,6 +174,7 @@
 
     <script src="assets/js/lib/moment/moment.js"></script>
     <script src="assets/calendar/fullcalendar.min.js"></script>
+    <script src="assets/calendar/es.js"></script>
     <script src="assets/calendar/fullcalendar-init.js"></script>
 
     <script src="config/sidebar.js"></script>

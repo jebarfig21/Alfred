@@ -1,6 +1,6 @@
 <?php
 
-	class Nodo extends BaseModel {
+	class NodeData extends BaseModel {
 		private $id, $lightSensor, $movement, $lightActivate, $temp, $humidity;
 
 		public function __construct(){

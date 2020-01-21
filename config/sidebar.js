@@ -3,15 +3,21 @@ var sidebar = {
 		title: '¿Qué quieres hacer?',
 
 		dropdowns:{
-			settings:{
-				title: 'Ajustes',
-				icon: 'fa fa-gears',
+			rooms:{
+				title: 'Tus Cuartos',
+				icon: '	fa fa-hotel',
 				content:{
-					General:{
-						title: 'Generales',
-						icon: 'fa fa-gear',
-						controller: 'Settings',
+					List: {
+						title: 'Lista',
+						icon: 'fa fa-address-book',
+						controller: 'Rooms',
 						action: 'index'
+					},
+					Create: {
+						title: 'Nuevo',
+						icon: 'fa fa-plus',
+						controller: 'Room',
+						action: 'newRoom'
 					}
 				}
 			},
@@ -33,13 +39,39 @@ var sidebar = {
 						action: 'Create'
 					}
 				}
+			},
+
+			Program:{
+				title: 'Rutinas',
+				icon: '	fa fa-clock-o',
+				content: {
+					List: {
+						title: 'Lista',
+						icon: 'fa fa-address-book',
+						controller: 'Program',
+						action: 'index'
+					},
+					Create: {
+						title: 'Nuevo',
+						icon: 'fa fa-plus',
+						controller: 'Program',
+						action: 'Create'
+					}
+				}
 			}
 		},
 
 		single:{
-			privacy:{
-				title: 'Aviso',
-				icon: 'fa fa-address-card',
+			Settings:{
+				title: 'Ajustes',
+				icon: 'fa fa-gears',
+				controller: 'Privacy',
+				action: 'index'
+			},
+
+			Help:{
+				title: 'Ayuda',
+				icon: 'fa fa-question-circle',
 				controller: 'Privacy',
 				action: 'index'
 			}

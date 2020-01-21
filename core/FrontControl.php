@@ -6,7 +6,7 @@
 		}
 
 		public function url($controller=DEFAULT_CONTROLLER, $action=DEFAULT_ACTION){
-			$newUrl = 'index.php?controller='.$controller.'$action='.$action;
+			$newUrl = 'index.php?controller='.$controller.'&action='.$action;
 			return $newUrl;
 		}
 

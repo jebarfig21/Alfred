@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 	loadSideBar();
 	setFooter();
+	$('#main-option').append('<a href="index.php"><i class="menu-icon fa fa-laptop"></i>Inicio </a>');
 });
 
 function loadSideBar(){
@@ -29,7 +30,7 @@ function loadSideBar(){
 		for(var single in sidebar[section].single){
 			var singleContent = sidebar[section].single[single];
 
-			htmlString += '<li><a href="index.php?controller='+singleContent.controller+'action='+ singleContent.action+'"> <i class="menu-icon '+singleContent.icon+'"></i>'+singleContent.title+'</a></li>';
+			htmlString += '<li><a href="index.php?controller='+singleContent.controller+'&action='+ singleContent.action+'"> <i class="menu-icon '+singleContent.icon+'"></i>'+singleContent.title+'</a></li>';
 		}
 	}
 
@@ -38,6 +39,6 @@ function loadSideBar(){
 
 function setFooter(){
 	var year = new Date().getFullYear();
-	var footer = '<div class="col-sm-6">Copyright &copy; '+year+' - Alfred</div><div class="col-sm-6 text-right">Designed by <a href="#">Alfonso</a></div>';
+	var footer = '<div class="col-sm-6">Copyright &copy; '+year+' - Alfred</div><div class="col-sm-6 text-right">Diseñado por <a href="#">Alfonso</a></div>';
 	$('#footer').append(footer);
 }
