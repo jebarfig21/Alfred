@@ -33,7 +33,7 @@ class Node extends BaseModel {
 		.$this->room."','"
 		.$this->alias."')";
 
-		$save = $this->db->query($query);
+		$save = $this->db()->query($query);
 
 		return $save;
 	}

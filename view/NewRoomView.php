@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
+    <link rel="stylesheet" href="assets/jquery-confirm/jquery-confirm.min.css">
     
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -69,8 +70,8 @@
                                 <input type="text" class="form-control" placeholder="Nuevo cuarto" aria-describedby="room" id="roomName">
                             </div><br>
                             <div class="buttons float-right">
-                                <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Nodos</button>
-                                <button class="btn btn-md btn-success"><span class="fa fa-check"></span> Guardar</button>
+                                <button id="openModal" class="btn btn-md btn-primary" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Nodos</button>
+                                <button class="btn btn-md btn-success" id="saveRoom"><span class="fa fa-check"></span> Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -80,7 +81,9 @@
                     <div class="card">
                         <div class="card-header">Nodos del cuarto</div>
                         <div class="card-body">
-                            <table id="nodesList" class="display" width="100%"></table>
+                            <div class="table-responsive"></div>
+                            <table id="nodesList" class="table-striped" width="100%">
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -91,21 +94,22 @@
             <div class="modal-dialog">
 
                 <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Nuevo Nodo</h4>
-                                </div>
-                                <div class="modal-body">
-                                <div class="input-group">
-                                    <span class="input-group-addon fa fa-book" id="nodeLabel"></span>
-                                    <input type="text" class="form-control" placeholder="Nuevo nodo" aria-describedby="nodeLabel" id="nodeName">
-                                </div>
-                                </div>
-                            <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Nuevo Nodo</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-book" id="nodeLabel"></span>
+                        <input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="nodeName">
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
 
             </div>
         </div>
@@ -128,7 +132,10 @@
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
 
+    <script src="js/alerts.js"></script>
+    <script src="js/server.js"></script>
     <script src="config/sidebar.js"></script>
     <script src="js/frame.js"></script>
     <script src="js/NewRoom.js"></script>

@@ -58,6 +58,37 @@ var sidebar = {
 						action: 'Create'
 					}
 				}
+			},
+
+			values:{
+				title: 'Sensores',
+				icon: 'fa fa-child',
+				content: {
+					Temp: {
+						title: 'Temperatura',
+						icon: 'fa fa-address-book',
+						controller: 'Program',
+						action: 'index'
+					},
+					Humedad: {
+						title: 'Humedad',
+						icon: 'fa fa-plus',
+						controller: 'Program',
+						action: 'Create'
+					},
+					Light: {
+						title: 'Luminosidad',
+						icon: 'fa fa-plus',
+						controller: 'Program',
+						action: 'Create'
+					},
+					Movement: {
+						title: 'Movimiento',
+						icon: 'fa fa-plus',
+						controller: 'Program',
+						action: 'Create'
+					}
+				}
 			}
 		},
 
