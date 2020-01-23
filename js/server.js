@@ -7,10 +7,10 @@ function sendToServer(jsobject, controller, action) {
         url: actionUrl,
         data: {Data:json},
         success: function(data){
-        	alertSuccess(data);
+        	alertSuccess('Exito',data);
         },
         error: function(e){
-            alertDanger(e.responseText);
+            alertDanger('Error DB',e.responseText);
         }
 	})
 }

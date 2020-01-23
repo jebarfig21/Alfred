@@ -19,7 +19,8 @@
 		}
 
 		public function getAll() {
-			$query = $this->db->query("SELECT * FROM $this->$table ORDER BY id DESC");
+			$query = $this->db->query("SELECT * FROM $this->table ORDER BY nodo_id DESC");
+			$resultSet = [];
 
 			while($row = $query->fetch_object()){
 				$resultSet[] = $row;
@@ -29,7 +30,8 @@
 		}
 
 		public function getById($id) {
-			$query = $this->db->query("SELECT * FROM $this->table WHERE id=$id");
+			$query = $this->db->query("SELECT * FROM $this->table WHERE nodo_id='$id'");
+			$resultSet = [];
 
 			if ($row = $query->fetch_object()) {
 				$resultSet = $row;
@@ -40,6 +42,7 @@
 
 		public function getBy($column, $value){
 			$query = $this->db->query("SELECT * FROM $this->table WHERE $column = '$value'");
+			$resultSet = [];
 
 			while ($row = $query->fetch_object()) {
 				$resultSet[] = $row;
@@ -50,6 +53,7 @@
 
 		public function getData($data, $column, $value){
 			$query = $this->db->query("SELECT $data FROM $this->table WHERE $column = $value");
+			$resultSet = [];
 
 			while ($row = $query->fetch_object()) {
 				$resultSet[] = $row;

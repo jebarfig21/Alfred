@@ -1,10 +1,12 @@
 var newNodes = [];
+var tableContent = [];
 
 function addNode(){
 	var nodeName = $('#nodeName').val();
-	var tableContent;
 	if(nodeName == ''){
 		alertWarning('Favor de agregar el alias del nodo');
+	}else if(tableContent.includes(nodeName)){
+		alertWarning('Ese nodo ya existe');
 	}else{
 		tableContent ='<tr><td align = "center">'+nodeName+'</td></tr>';
 		$('#nodesList').append(tableContent);
@@ -16,7 +18,7 @@ function saveRoom(){
 	var roomName = $('#roomName').val();
 
 	if (roomName == '' || newNodes.length == 0) {
-		alertWarning('Datos incompletos');
+		alertWarning('Cuidado','Datos incompletos');
 	}else{
 		var newRoom = {
 			name: roomName,

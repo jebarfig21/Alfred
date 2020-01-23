@@ -10,7 +10,7 @@ var sidebar = {
 					List: {
 						title: 'Lista',
 						icon: 'fa fa-address-book',
-						controller: 'Rooms',
+						controller: 'Room',
 						action: 'index'
 					},
 					Create: {

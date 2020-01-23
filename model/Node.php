@@ -37,6 +37,18 @@ class Node extends BaseModel {
 
 		return $save;
 	}
+
+	public function getRooms(){
+		$query = $this->db()->query("SELECT DISTINCT Room FROM nodes");
+		$resultSet = [];
+
+		while($row = $query->fetch_object()){
+			$resultSet[] = $row;
+		}
+
+		return $resultSet;
+
+	}
 }
 
 ?>
