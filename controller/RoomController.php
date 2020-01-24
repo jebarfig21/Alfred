@@ -21,8 +21,10 @@ require_once "model/Node.php";
 				$htmlString .= '<tr>';
 				$htmlString .= '<td align = "center">'.$row->Room.'</td>';
 				$htmlString .= '<td align = "center">'.$numNodes.'</td>';
-				$htmlString .= '<td align = "center"><button class="btn btn-success"><span class="fa fa-search"></span></button</td>';
-				$htmlString .= '<td align = "center"><button class="btn btn-primary"><span class="fa fa-cogs"></span></button</td>';
+				$htmlString .= '<td align = "center"><button class="btn btn-success" onclick="reviewRoom(\''.$row->Room.'\')">';
+				$htmlString .= '<span class="fa fa-search"></span></button</td>';
+				$htmlString .= '<td align = "center"><button class="btn btn-primary" onclick="updateRoom(\''.$row->Room.'\')">';
+				$htmlString .= '<span class="fa fa-cogs"></span></button</td>';
 				$htmlString .= '<td align = "center"><button class="btn btn-danger" onclick="eraseRoom(\''.$row->Room.'\')">';
 				$htmlString .= '<span class="fa fa-minus-circle"></button</td>';
 				$htmlString .= '</tr>';
@@ -57,6 +59,36 @@ require_once "model/Node.php";
 			} else {
 				echo LOSE_INFO;
 			}
+		}
+
+		public function eraseRoom(){
+			$newRoom = json_decode($_POST['Data']);
+			$roomName = $newRoom->{"name"};
+			$nodeObject = new Node();
+
+			$nodeObject->deleteBy('Room',$roomName);
+
+			echo 'Se elimino correctamente';
+		}
+
+		public function getNodesByRoom(){
+			$Room = json_decode($_POST['Data']);
+			$roomName = $Room->{"name"};
+			$nodeObject = new Node();
+
+			$nodes = $nodeObject->getBy('Room',$roomName);
+
+			echo json_encode($nodes);
+		}
+
+		public function updateRoom(){
+			$Room = json_decode($_POST['Data']);
+			$roomName = $Room->{"name"};
+			$nodeObject = new Node();
+
+			$nodeObject->updateBy('Room',$roomName);
+
+			echo 'Se elimino correctamente';
 		}
 
 	}

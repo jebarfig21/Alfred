@@ -18,40 +18,42 @@ function alertWarning(title, content) {
 	});
 }
 
-function alertSuccess(title, content){
+function alertSuccess(title, content, reload){
 	$.alert({
 		icon: 'fa fa-check-circle',
 		title: title,
 		content: content,
 		type: 'green',
-		typeAnimated: true
+		typeAnimated: true,
+		buttons:{
+			okay:function(){
+				if(reload){
+					location.reload();
+				}	
+			}
+		}
 	});
 }
 
-function confirmDanger(title, content){
+function confirmDanger(title, content,btns){
 	$.confirm({
 		icon: 'fa fa-warning',
 		title: title,
 		content: content,
 		type: 'red',
 		typeAnimated: true,
-		buttons: {
-				confirmar: {
-					text: 'Confirmar',
-					btnClass: 'btn-danger',
-					keys: ['enter', 'shift'],
-					action: function(){
-						return true;
-					}
-				},
-				cancelar: {
-					text: 'Cancelar',
-					btnClass: 'btn-primary',
-					keys: ['enter', 'shift'],
-					action: function(){
-						return true;
-						}
-				}
-			}
+		buttons: btns
+	});
+}
+
+function modalUpdate(title,content,btns){
+	$.alert({
+		icon: 'fa fa-check-circle',
+		title: title,
+		content: content,
+		type: 'blue',
+		typeAnimated: true,
+		columnClass: 'col-md-12',
+		buttons:btns
 	});
 }
