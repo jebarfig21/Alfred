@@ -53,7 +53,7 @@ function modalUpdate(title,content,btns){
 		content: content,
 		type: 'blue',
 		typeAnimated: true,
-		columnClass: 'col-md-12',
+		columnClass: 'col-md-8',
 		buttons:btns
 	});
 }

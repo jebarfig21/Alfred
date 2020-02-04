@@ -4,9 +4,9 @@ var tableContent = [];
 function addNode(){
 	var nodeName = $('#nodeName').val();
 	if(nodeName == ''){
-		alertWarning('Favor de agregar el alias del nodo');
+		alertWarning('Cuidado','Favor de agregar el alias del nodo');
 	}else if(tableContent.includes(nodeName)){
-		alertWarning('Ese nodo ya existe');
+		alertWarning('Cuidado','Ese nodo ya existe');
 	}else{
 		tableContent ='<tr><td align = "center">'+nodeName+'</td></tr>';
 		$('#nodesList').append(tableContent);

@@ -31,10 +31,59 @@ function updateRoom(room){
 	getFromServer(updateRoom, 'Room', 'getNodesByRoom').then(
 		function(data){
 			var obj = JSON.parse(data);
-			console.log(obj);
+			showNodes(obj, room);
 		}, function(e){
 			alertDanger('Error',e);
 	});
+}
+
+function showNodes(obj, roomName){
+	var html = '';
+	var inputID = [];
+
+	for(var node in obj){
+		var nodeData = obj[node];
+		inputID.push(nodeData.nodo_id);
+		html += '<div class="input-group">'+
+		                '<span class="input-group-addon fa fa-book" id="nodeLabel"></span>'+
+		                '<input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="'+nodeData.nodo_id+'" value="'+nodeData.Alias+'">'+
+		            '</div><br>';
+	}
+
+	var newValues = [];
+	var updateData = {
+		name: roomName,
+		id:[],
+		values:[]
+	}
+
+	var btn = {
+		update:{
+			text: 'Guardar',
+			btnClass: 'btn-success',
+			action: function(){
+				inputID.forEach(function(currentValue){
+					var value = $('#'+currentValue).val();
+					if (value === '') {
+						alertWarning('Cuidado','Favor de no dejar campos vacios');
+						return false;
+					}else{
+						newValues.push(value);
+					}
+				});
+
+				updateData = {
+					name: roomName,
+					id:inputID,
+					values:newValues
+				}
+				sendToServer(updateData, 'Room', 'updateRoom');
+			}
+		}
+	}
+
+
+	modalUpdate("Modificar", html, btn);
 }
 
 $(document).ready(function() {

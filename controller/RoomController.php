@@ -84,11 +84,10 @@ require_once "model/Node.php";
 		public function updateRoom(){
 			$Room = json_decode($_POST['Data']);
 			$roomName = $Room->{"name"};
+			$ids = $Room->{"id"};
+			$values = $Room->{"values"};	
 			$nodeObject = new Node();
-
-			$nodeObject->updateBy('Room',$roomName);
-
-			echo 'Se elimino correctamente';
+			//echo 'Se elimino correctamente';
 		}
 
 	}

@@ -19,7 +19,7 @@
 		}
 
 		public function getAll() {
-			$query = $this->db->query("SELECT * FROM $this->table ORDER BY nodo_id DESC");
+			$query = $this->db->query("SELECT * FROM $this->table");
 			$resultSet = [];
 
 			while($row = $query->fetch_object()){
