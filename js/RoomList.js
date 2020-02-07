@@ -58,6 +58,9 @@ function showNodes(obj, roomName){
 	}
 
 	var btn = {
+		cancel:{
+			text:"Cancelar"
+		},
 		update:{
 			text: 'Guardar',
 			btnClass: 'btn-success',
@@ -83,7 +86,7 @@ function showNodes(obj, roomName){
 	}
 
 
-	modalUpdate("Modificar", html, btn);
+	modalUpdate("Modificar "+roomName, html, btn);
 }
 
 $(document).ready(function() {

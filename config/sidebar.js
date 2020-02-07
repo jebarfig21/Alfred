@@ -36,7 +36,7 @@ var sidebar = {
 						title: 'Nuevo',
 						icon: 'fa fa-plus',
 						controller: 'Nodo',
-						action: 'Create'
+						action: 'newNode'
 					}
 				}
 			},

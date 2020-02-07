@@ -63,12 +63,17 @@
 		}
 
 		public function deleteById($id){
-			$query = $this->db->query("DELETE FROM $this->table WHERE id=$id");
+			$query = $this->db->query("DELETE FROM $this->table WHERE nodo_id=$id");
 			return $query;
 		}
 
 		public function deleteBy($column, $value){
 			$query = $this->db->query("DELETE FROM $this->table WHERE $column='$value'");
+			return $query;
+		}
+
+		public function update($column,$value,$filter,$filterVal){
+			$query = $this->db->query("UPDATE $this->table SET $column='$value' WHERE $filter='$filterVal'");
 			return $query;
 		}
 	}

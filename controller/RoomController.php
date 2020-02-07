@@ -61,6 +61,23 @@ require_once "model/Node.php";
 			}
 		}
 
+		public function appendToRoom(){
+			if(isset($_POST['Data'])){
+				$newRoom = json_decode($_POST['Data']);
+				$roomName = $newRoom->{"name"};
+				$nodeObject = new Node();
+
+				$nodeObject->setRoom($roomName);
+				foreach ($newRoom->{"nodes"} as $alias) {
+					$nodeObject->setAlias($alias);
+					$nodeObject->save();
+				}
+				echo 'Se ha guardado correctamente';
+			} else {
+				echo LOSE_INFO;
+			}
+		}
+
 		public function eraseRoom(){
 			$newRoom = json_decode($_POST['Data']);
 			$roomName = $newRoom->{"name"};
@@ -87,7 +104,11 @@ require_once "model/Node.php";
 			$ids = $Room->{"id"};
 			$values = $Room->{"values"};	
 			$nodeObject = new Node();
-			//echo 'Se elimino correctamente';
+
+			for ($i=0; $i < count($ids) ; $i++) { 
+				$result = $nodeObject->update('Alias',$values[$i], 'nodo_id', $ids[$i]);
+			}
+			echo 'Se modificó correctamente';
 		}
 
 	}
