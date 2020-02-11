@@ -147,6 +147,8 @@
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
 
 
+
+
     <script src="js/alerts.js"></script>
     <script src="js/server.js"></script>
     <script src="config/sidebar.js"></script>

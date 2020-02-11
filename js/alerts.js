@@ -57,3 +57,14 @@ function modalUpdate(title,content,btns){
 		buttons:btns
 	});
 }
+
+function alertView(title, content) {
+	$.alert({
+		icon: 'fa fa-check-circle',
+		columnClass:'col-md-8',
+		title: title,
+		content: content,
+		type: 'blue',
+		typeAnimated: true
+	});
+}

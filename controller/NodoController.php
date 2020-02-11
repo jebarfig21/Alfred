@@ -60,6 +60,12 @@ require_once "core/BaseController.php";
 			echo 'Se modificó correctamente';
 		}
 
+		public function reviewNode(){
+			$data = json_decode($_POST['Data']);
+			$id = $data->{"id"};
+			$this->view('reviewNodo', array("node_id" => $id));
+		}
+
 	}
 
 ?>

@@ -65,6 +65,13 @@ function updateNode(node_id, alias){
 	modalUpdate("Modificar "+alias, html, btn);
 }
 
+function reviewNode(node_id, alias){
+	var node = {
+		id:node_id
+	}
+	modalView(node, 'Nodo', 'reviewNode', alias);
+}
+
 $(document).ready(function() {
 	$('#table').DataTable({
         "language": {
