@@ -111,6 +111,15 @@ require_once "model/Node.php";
 			echo 'Se modificó correctamente';
 		}
 
+		public function reviewRoom(){
+			$room = $_GET['Data'];
+
+			$nodeObject = new Node();
+
+
+			$this->view('ReviewRoom',array());
+		}
+
 	}
 
 ?>

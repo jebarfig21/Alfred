@@ -42,3 +42,9 @@ function modalView(jsobject, controller, action, title) {
         }
     })
 }
+
+function loadNewView(value,controller,action){
+    var actionUrl = 'index.php?controller='+controller+'&action='+action+'&Data='+value;
+
+    window.location.href = actionUrl;
+}

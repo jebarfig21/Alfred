@@ -89,6 +89,10 @@ function showNodes(obj, roomName){
 	modalUpdate("Modificar "+roomName, html, btn);
 }
 
+function reviewRoom(room){
+	loadNewView(room,'Room', 'reviewRoom')
+}
+
 $(document).ready(function() {
 	$('#table').DataTable({
         "language": {

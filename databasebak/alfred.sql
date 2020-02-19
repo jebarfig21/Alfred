@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2020 at 01:22 AM
+-- Generation Time: Feb 19, 2020 at 04:34 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `alfred`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `humidiy_sensor`
+--
+
+CREATE TABLE `humidiy_sensor` (
+  `nodo_id` float NOT NULL,
+  `value` float NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -92,6 +104,13 @@ CREATE TABLE `relays` (
   `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `relays`
+--
+
+INSERT INTO `relays` (`nodo_id`, `status`, `relay_id`, `date`) VALUES
+(10, 1, 1, '2020-02-18 18:57:59');
+
 -- --------------------------------------------------------
 
 --
@@ -100,16 +119,9 @@ CREATE TABLE `relays` (
 
 CREATE TABLE `temperature_sensor` (
   `nodo_id` float NOT NULL,
-  `temp_value` float NOT NULL,
-  `time` datetime NOT NULL DEFAULT current_timestamp()
+  `value` float NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `temperature_sensor`
---
-
-INSERT INTO `temperature_sensor` (`nodo_id`, `temp_value`, `time`) VALUES
-(11, 30, '2020-02-12 14:09:46');
 
 --
 -- Indexes for dumped tables
