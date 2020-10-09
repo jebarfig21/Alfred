@@ -2,13 +2,17 @@
 	class Base {
 		private $table, $db, $connect;
 
-		public function __construct($table) {
+		public function __construct($table,$db = NULL) {
 			$this->table = (string) $table;
-                        
+                        if(is_null($db)){
 				require_once 'ConnectDB.php';
                         	$this->connect = new Connect();
                         	$this->db = $this->connect->connection();
-
+				
+			}else{
+                       		
+				$this->db=$db;
+                        }
 			
 		}
 

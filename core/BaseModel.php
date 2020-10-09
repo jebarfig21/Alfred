@@ -3,9 +3,14 @@
 	class BaseModel extends Base{
 		private $table;
 
-		public function __construct($table){
+		public function __construct($table, $db=NULL){
 			$this->table = (string)$table;
-			parent::__construct($table);
+			if(is_null($db)){
+				parent::__construct($table);
+			}else{
+				
+				parent::__construct($table,$db);
+			}
 
 		}
 

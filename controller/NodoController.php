@@ -68,12 +68,9 @@ require_once "core/BaseController.php";
 			$id = $data->{"id"};
                         $humidityObject=new Humidity();
 			$humidity = $humidityObject->getLastValueByNode($id);
-			//$humidityObject->closeConnection();
-			//unset($humidityObject);
-			//var_dump($humidityObject);die();
-			//$lightObject=new Light();
-			//var_dump($lightObject);die();
-			//$light = $lightObject->getLastValueByNode($id); 
+			$db=$humidityObject->db();
+			$lightObject=new Light($db);
+			$light = $lightObject->getLastValueByNode($id); 
 			$this->view('reviewNodo', array("node_id" => $id,"light"=>$light,"humidity"=>$humidity));
 		
 		}
