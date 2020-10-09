@@ -4,11 +4,14 @@
 
 		public function __construct($table) {
 			$this->table = (string) $table;
+                        
+				require_once 'ConnectDB.php';
+                        	$this->connect = new Connect();
+                        	$this->db = $this->connect->connection();
 
-			require_once 'ConnectDB.php';
-			$this->connect = new Connect();
-			$this->db = $this->connect->connection();
+			
 		}
+
 
 		public function getConnection(){
 			return $this->connect;
@@ -17,10 +20,15 @@
 		public function db() {
 			return $this->db;
 		}
+		public function closeConnection(){
+			
+			return $this->db->close();
+		}
 
 		public function getAll() {
 			$query = $this->db->query("SELECT * FROM $this->table");
 			$resultSet = [];
+                        
 
 			while($row = $query->fetch_object()){
 				$resultSet[] = $row;
@@ -28,6 +36,28 @@
 
 			return $resultSet;
 		}
+
+                 public function getLastValueByNode($id_node) {
+                        
+                        
+			$query = $this->db->query("SELECT * FROM $this->table WHERE nodo_id = ".$id_node." ORDER BY `date` DESC LIMIT 1");
+			//$query = $this->db->query("SELECT * FROM $this->table WHERE nodo_id = "."55");
+
+                        $resultSet = [];
+			
+                        while($row = $query->fetch_object()){
+                                $resultSet[] = $row;
+                                
+
+                        }
+			//var_dump($resultSet); 
+			//die();
+                        return $resultSet[0]->value;
+
+
+                        
+                }
+
 
 		public function getById($id) {
 			$query = $this->db->query("SELECT * FROM $this->table WHERE nodo_id='$id'");
@@ -76,5 +106,6 @@
 			$query = $this->db->query("UPDATE $this->table SET $column='$value' WHERE $filter='$filterVal'");
 			return $query;
 		}
+   		
 	}
 ?>

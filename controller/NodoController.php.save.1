@@ -28,7 +28,15 @@ require_once "core/BaseController.php";
 			$this->view('ListNodes',array("tableContent" => $htmlString));
 		}
 
-		
+		public function getCurrentHumidity(){
+			$humidityObject = new Humidity();
+			$Nodo = json_decode($_POST['Data']);
+                        $id = $Nodo->{"id"};
+                        $currentHumidity = $humidityObject->getLastValueByNode($id);
+
+                        $this->view('reviewNodo',array("humidity" => $currentHumidity));
+
+		}
 
 		public function newNode(){
 			$nodeObject = new Node();
@@ -63,19 +71,16 @@ require_once "core/BaseController.php";
 		}
 
 		public function reviewNode(){
-
 			$data = json_decode($_POST['Data']);
 			$id = $data->{"id"};
-                        $humidityObject=new Humidity();
-			$humidity = $humidityObject->getLastValueByNode($id);
-			//$humidityObject->closeConnection();
-			//unset($humidityObject);
-			//var_dump($humidityObject);die();
-			//$lightObject=new Light();
-			//var_dump($lightObject);die();
-			//$light = $lightObject->getLastValueByNode($id); 
-			$this->view('reviewNodo', array("node_id" => $id,"light"=>$light,"humidity"=>$humidity));
-		
+                        $humidityObject = new Humidity();
+                        $humidity = $humidityObject->getLastValueByNode($id);
+			//$lightObject = new Light();
+                        //$light = $lightObject->getLastValueByNode($id);
+			//$presenceObject = new Presence();
+                        //$presence  = $presenceObject->getLastValueByNode($id);
+			$this->view('reviewNodo', array("node_id" => $id,"humidity" => $humidity));
+			//$this->view('reviewNodo', array("node_id" => $id,"humidity" => $humidity,"light"=>$light,"presence"=>$presence));
 		}
 
 	}

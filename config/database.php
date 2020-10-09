@@ -2,9 +2,10 @@
 	return array(
 		"driver" 	=> "mysqli",
 		"host" 		=> "localhost",
-		"user" 		=> "root",
-		"pass" 		=> "",
+		"user" 		=> "jesus",
+		"pass" 		=> "2wsx0okm",
 		"database" 	=> "Alfred",
 		"charset" 	=> "utf8"
 	);
 ?>
+

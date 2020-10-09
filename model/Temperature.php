@@ -1,7 +1,7 @@
 <?php
 
 	class Temperature extends BaseModel {
-		private $nodo_id, $temp_value, $date;
+		private $medicion_id, $nodo_id, $value, $date;
 
 		public function __construct(){
 			$table = "temperature_sensor";
@@ -9,12 +9,26 @@
 		}
 
 		public function getId(){
-			return $this->nodo_id;
-		}	
+			return $this->medicion_id;
+		}
 
 		public function setId($id){
-			$this->nodo_id = $id;
+			$this->medicion_id = $id;
 		}
+                 public function getNodeId(){
+                        return $this->nodo_id;
+                }
+
+		 public function tempValue(){
+                        return $this->value;
+                }
+
+ 		public function getDate(){
+                        return $this->date;
+                }
+
+
+
 
 	}
 

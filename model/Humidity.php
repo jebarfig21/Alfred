@@ -15,6 +15,10 @@
 		public function setId($id){
 			$this->nodo_id = $id;
 		}
+                
+                
+
+
 
 	}
 

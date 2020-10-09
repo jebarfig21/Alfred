@@ -1,12 +1,11 @@
 <div class="card">
     <div class="card-header">Datos</div>
     <div class="card-body">
-        Luz:<br>
-        Humedad:<br>
+        Luz: <?php echo $light; ?><br>
+        Humedad: <?php echo $humidity; ?> <br>
         Presencia:<br>
     </div>
 </div>
-
 <div class="card">
     <div class="card-header">Temperatura</div>
     <div class="card-body">
