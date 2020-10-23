@@ -1,4 +1,3 @@
-
 function eraseNode(node_id, alias){
 	var nodeToErase = {
 		id:node_id
@@ -28,9 +27,21 @@ function updateNode(node_id, alias){
 	var inputID = [];
 
 	html += '<div class="input-group">'+
-		                '<span class="input-group-addon fa fa-book" id="nodeLabel"></span>'+
+                                '<span class="input-group-text">Alias</span>'+
 		                '<input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="'+node_id+'" value="'+alias+'">'+
-		            '</div><br>';
+		 '</div><br>'+
+		 '<div class="input-group">'+
+  				'<div class="input-group-prepend">'+
+    					'<label class="input-group-text" for="inputGroupSelect01">Cuarto</label>'+
+  				'</div>'+
+		               		'<select class="custom-select" id="inputGroupSelect01">'+
+    			       			'<option selected>Choose...</option>'+
+    						'<option value="1">One</option>'+
+    						'<option value="2">Two</option>'+
+    						'<option value="3">Three</option>'+
+  			       		'</select>'+
+		 '</div><br>';
+
 
 	var newValues = [];
 	var updateData = {

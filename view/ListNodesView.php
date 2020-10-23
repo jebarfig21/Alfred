@@ -93,23 +93,25 @@
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
 
-                <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Nuevo Nodo</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
-                        <span class="input-group-addon fa fa-book" id="nodeLabel"></span>
-                        <input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="nodeName">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
+            	<!-- Modal content-->
+            	<div class="modal-content">
+                	<div class="modal-header">
+                    		<button type="button" class="close" data-dismiss="modal">&times;</button>
+                    		<h4 class="modal-title">Nuevo Nodo</h4>
+                	</div>
+                
+			<div class="modal-body">
+                    		<div class="input-group">
+                        		<span class="input-group-addon fa fa-book" id="nodeLabel"></span>
+                        		<input type="text" class="form-control" placeholder="Alias56" aria-describedby="nodeLabel" id="nodeName">
+                    		</div>
+                	</div>
+
+	                <div class="modal-footer">
+        	            <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
+                	    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                	</div>
+            	</div>
 
             </div>
         </div>

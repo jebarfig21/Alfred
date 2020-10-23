@@ -33,6 +33,15 @@ require_once "model/Node.php";
 			$this->view('ListRoom',array("tableContent" => $htmlString));
 		}
 
+		public function getAllRooms(){
+			$nodeObject = new Node();
+                        $rooms = $nodeObject->getRooms();
+                        var_dump($rooms);
+			//die();
+			//$this->view('NewRoom',array());
+		}
+
+
 		public function newRoom(){
 			$this->view('NewRoom',array());
 		}

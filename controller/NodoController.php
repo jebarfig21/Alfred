@@ -28,8 +28,6 @@ require_once "core/BaseController.php";
 			$this->view('ListNodes',array("tableContent" => $htmlString));
 		}
 
-		
-
 		public function newNode(){
 			$nodeObject = new Node();
 			$roomNames = $nodeObject->getRooms();
@@ -57,9 +55,12 @@ require_once "core/BaseController.php";
 			$value = $Nodo->{"value"};
 			$nodeObject = new Node();
 
-			$nodeObject->update('Alias',$value, 'nodo_id', $id);
-
-			echo 'Se modificó correctamente';
+			$query=$nodeObject->update(array('Alias'),array($value),'nodo_id', $id);
+			if($query){
+				echo 'Se modificó correctamente';
+			}else{
+				echo 'No se pudo modificar el Nodo';
+			}
 		}
 
 		public function reviewNode(){
@@ -71,7 +72,11 @@ require_once "core/BaseController.php";
 			$db=$humidityObject->db();
 			$lightObject=new Light($db);
 			$light = $lightObject->getLastValueByNode($id); 
-			$this->view('reviewNodo', array("node_id" => $id,"light"=>$light,"humidity"=>$humidity));
+			$temperatureObject=new Temperature($db);
+                        $temperature = $temperatureObject->getLastValueByNode($id); 
+			$presenceObject= new Presence($db);
+			$presence = $presenceObject->getLastValueByNode($id);
+			$this->view('reviewNodo', array("node_id" => $id,"light"=>$light,"humidity"=>$humidity,"temperature"=>$temperature,"presence"=>$presence));
 		
 		}
 

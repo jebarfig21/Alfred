@@ -1,20 +1,36 @@
 <div class="card">
-    <div class="card-header">Datos</div>
+    <div class="card-header">Luminosidad</div>
     <div class="card-body">
         Luz: <?php echo $light; ?><br>
-        Humedad: <?php echo $humidity; ?> <br>
-        Presencia:<br>
     </div>
+
 </div>
 <div class="card">
-    <div class="card-header">Temperatura</div>
+    <div class="card-header">Humedad</div>
     <div class="card-body">
+        Humedad: <?php echo $humidity; ?> <br>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-primary">Temperatura</div>
+    <div class="card-body">
+
+	Temperatura:<?php echo $temperature; ?> <br>
+
         <div class="flot-container">
             <div id="cpu-load" class="cpu-load"></div>
         </div>
     </div>
 </div>
 
+
+<div class="card">
+    <div class="card-header">Presencia</div>
+    <div class="card-body">
+        Presencia:<?php echo $presence; ?> <br>
+    </div>
+</div>
 
 
 <script src="assets/js/lib/flot-chart/excanvas.min.js"></script>
