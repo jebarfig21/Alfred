@@ -7,9 +7,15 @@ require_once "core/BaseController.php";
 		}
 
 		public function index(){
+			$htmlString = $this->listAllNodes();
+			$this->view('ListNodes',array("tableContent" => $htmlString));
+		}
+
+		public function listAllNodes(){
 			$nodeObject = new Node();
 
 			$nodes = $nodeObject->getAll();
+			$rooms = $nodeObject->getRooms();
 			$htmlString = '';
 
 			foreach ($nodes as $row) {
@@ -25,9 +31,8 @@ require_once "core/BaseController.php";
 				$htmlString .= '<span class="fa fa-minus-circle"></button</td>';
 				$htmlString .= '</tr>';
 			}
-			$this->view('ListNodes',array("tableContent" => $htmlString));
+		return $htmlString;
 		}
-
 		public function newNode(){
 			$nodeObject = new Node();
 			$roomNames = $nodeObject->getRooms();
