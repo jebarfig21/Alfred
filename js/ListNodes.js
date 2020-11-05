@@ -22,9 +22,11 @@ function eraseNode(node_id, alias){
 	confirmDanger('Alerta', 'Seguro de querer borrar '+alias+'?', btns);
 }
 
-function updateNode(node_id, alias){
+function updateNode(node_id, alias,rooms){
 	var html = '';
 	var inputID = [];
+	console.log(rooms);
+	rooms = jQuery.parseJSON(rooms);
 
 	html += '<div class="input-group">'+
                                 '<span class="input-group-text">Alias</span>'+
@@ -35,11 +37,14 @@ function updateNode(node_id, alias){
     					'<label class="input-group-text" for="inputGroupSelect01">Cuarto</label>'+
   				'</div>'+
 		               		'<select class="custom-select" id="inputGroupSelect01">'+
-    			       			'<option selected>Choose...</option>'+
-    						'<option value="1">One</option>'+
-    						'<option value="2">Two</option>'+
-    						'<option value="3">Three</option>'+
-  			       		'</select>'+
+    			       			'<option selected>Choose...</option>';
+
+						for (var i = 0; i < rooms.length; i++) {
+            						html+='<option value='+rooms[i].Room +'>'+rooms[i].Room+'</option>';
+        					}
+
+
+  			       	html+='</select>'+
 		 '</div><br>';
 
 

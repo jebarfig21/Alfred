@@ -16,6 +16,8 @@ require_once "core/BaseController.php";
 
 			$nodes = $nodeObject->getAll();
 			$rooms = $nodeObject->getRooms();
+			$roomsJSON = json_encode($rooms);
+			
 			$htmlString = '';
 
 			foreach ($nodes as $row) {
@@ -25,7 +27,7 @@ require_once "core/BaseController.php";
 				$htmlString .= '<td align = "center">'.$row->Alias.'</td>';
 				$htmlString .= '<td align = "center"><button class="btn btn-success" onclick="reviewNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">';
 				$htmlString .= '<span class="fa fa-search"></span></button</td>';
-				$htmlString .= '<td align = "center"><button class="btn btn-primary" onclick="updateNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">';
+				$htmlString .= '<td align = "center"><button class="btn btn-primary" onclick="updateNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\',\''.htmlspecialchars($roomsJSON).'\')">';
 				$htmlString .= '<span class="fa fa-cogs"></span></button</td>';
 				$htmlString .= '<td align = "center"><button class="btn btn-danger" onclick="eraseNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">';
 				$htmlString .= '<span class="fa fa-minus-circle"></button</td>';
