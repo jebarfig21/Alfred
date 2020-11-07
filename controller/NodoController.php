@@ -17,7 +17,6 @@ require_once "core/BaseController.php";
 			$nodes = $nodeObject->getAll();
 			$rooms = $nodeObject->getRooms();
 			$roomsJSON = json_encode($rooms);
-			
 			$htmlString = '';
 
 			foreach ($nodes as $row) {
@@ -58,11 +57,16 @@ require_once "core/BaseController.php";
 
 		public function updateNode(){
 			$Nodo = json_decode($_POST['Data']);
+			$nodeObject = new Node();
 			$id = $Nodo->{"id"};
 			$value = $Nodo->{"value"};
-			$nodeObject = new Node();
+			$room = $Nodo->{"room"};
+			if($room==NULL){
+				$room = $nodeObject->getById($id)->Room;
+			}
 
-			$query=$nodeObject->update(array('Alias'),array($value),'nodo_id', $id);
+			$query=$nodeObject->update(array('Alias','Room'),array($value,$room),'nodo_id', $id);
+
 			if($query){
 				echo 'Se modificó correctamente';
 			}else{

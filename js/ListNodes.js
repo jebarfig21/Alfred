@@ -25,7 +25,6 @@ function eraseNode(node_id, alias){
 function updateNode(node_id, alias,rooms){
 	var html = '';
 	var inputID = [];
-	console.log(rooms);
 	rooms = jQuery.parseJSON(rooms);
 
 	html += '<div class="input-group">'+
@@ -34,15 +33,14 @@ function updateNode(node_id, alias,rooms){
 		 '</div><br>'+
 		 '<div class="input-group">'+
   				'<div class="input-group-prepend">'+
-    					'<label class="input-group-text" for="inputGroupSelect01">Cuarto</label>'+
+    					'<label class="input-group-text" for="selectRoom">Cuarto</label>'+
   				'</div>'+
-		               		'<select class="custom-select" id="inputGroupSelect01">'+
+		               		'<select class="custom-select" id="selectRoom">'+
     			       			'<option selected>Choose...</option>';
 
 						for (var i = 0; i < rooms.length; i++) {
             						html+='<option value='+rooms[i].Room +'>'+rooms[i].Room+'</option>';
         					}
-
 
   			       	html+='</select>'+
 		 '</div><br>';
@@ -51,7 +49,8 @@ function updateNode(node_id, alias,rooms){
 	var newValues = [];
 	var updateData = {
 		id:0,
-		value: 0
+		value: 0,
+		room:"DefaulRoom"
 	}
 
 	var btn = {
@@ -65,19 +64,25 @@ function updateNode(node_id, alias,rooms){
 				var newAlias = $("#"+node_id).val();
 				if (newAlias == "") {
 					alertWarning("Cuidado","Favor de llenar el nuevo Alias")
+				}else if (document.getElementById("selectRoom").selectedIndex==0){
+					updateData = {
+                                                id:node_id,
+                                                value:newAlias
+                                        }
+					sendToServer(updateData, 'Nodo', 'updateNode')
+
 				}else{
 					updateData = {
 						id:node_id,
-						value:newAlias
+						value:newAlias,
+						room:document.getElementById("selectRoom").value
 					}
-
+					console.log(updateData);
 					sendToServer(updateData, 'Nodo', 'updateNode');
 				}
 			}
 		}
 	}
-
-
 	modalUpdate("Modificar "+alias, html, btn);
 }
 
