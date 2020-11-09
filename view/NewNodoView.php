@@ -63,22 +63,30 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
-                        <div class="card-header">Selecciona un cuarto</div>
+                        <div class="card-header text-white bg-success">Agrega un Nodo nuevo</div>
                         <div class="card-body">
-                            <div class="form-group">
-                              <label for="sel1">Cuarto:</label>
-                              <select class="form-control" id="comboRoom" onchange="loadNodes()">
-                                <option>Selecciona</option>
-                                <?php echo $comboRoom ?>
-                              </select>
-                            </div><br>
-                            <div class="buttons float-right">
-                                <button id="openModal" class="btn btn-md btn-primary" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Nodos</button>
-                                <button class="btn btn-md btn-success" id="saveRoom"><span class="fa fa-check"></span> Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+				<form>
+                            		<div class="form-group">
+                              			<label for="sel1">Selecciona Cuarto:</label>
+                              			<select class="form-control" id="comboRoom" onchange="loadNodes()">
+                                			<option>Selecciona</option>
+                                			<?php echo $comboRoom ?>
+                              			</select>
+			      		</div>
+
+					<!--Aqui hace falta otro select con los nodos que podemos seleccionar para agregar a nuestro proyecto-->
+
+					<div class="form-group">
+                              			<input type="text" class="form-control" placeholder="Escribe el alias del nodo" aria-describedby="nodeLabel" id="nodeName">
+                              		</div>
+
+                            		<div class="buttons float-right"><!--DEbo de modificar este boton para que agregue el nodo-->
+                                		<button class="btn btn-md btn-success" id="saveRoom"><span class="fa fa-check"></span> Guardar</button>
+                            		</div>
+				<form>
+                          </div> <!--"card-body"-->
+                    </div> <!--"card"-->
+                </div><!--"col"-->
 
                 <div class="col-sm-6">
                     <div class="card">
@@ -91,32 +99,6 @@
                     </div>
                 </div>
         </div> <!-- .content -->
-
-
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Nuevo Nodo</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
-                        <span class="input-group-addon fa fa-book" id="nodeLabel"></span>
-                        <input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="nodeName">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-
-            </div>
-        </div>
-
 
 
         <div class="clearfix"></div>

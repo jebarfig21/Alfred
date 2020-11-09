@@ -35,14 +35,16 @@ require_once "core/BaseController.php";
 		return $htmlString;
 		}
 		public function newNode(){
+
 			$nodeObject = new Node();
 			$roomNames = $nodeObject->getRooms();
-			$htmlString = '';
+			$roomNamesHTML = '';
 
 			foreach ($roomNames as $row) {
-				$htmlString .= "<option>".$row->Room."</option>";
+				$roomNamesHTML .= "<option>".$row->Room."</option>";
 			}
-			$this->view('newNodo',array("comboRoom" => $htmlString));
+			$this->view('NewNodo',array("comboRoom" => $roomNamesHTML));
+
 		}
 
 		public function eraseNode(){
@@ -88,7 +90,7 @@ require_once "core/BaseController.php";
 			$presenceObject= new Presence($db);
 			$presence = $presenceObject->getLastValueByNode($id);
 			$this->view('reviewNodo', array("node_id" => $id,"light"=>$light,"humidity"=>$humidity,"temperature"=>$temperature,"presence"=>$presence));
-		
+
 		}
 
 	}

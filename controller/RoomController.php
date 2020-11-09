@@ -36,14 +36,19 @@ require_once "model/Node.php";
 		public function getAllRooms(){
 			$nodeObject = new Node();
                         $rooms = $nodeObject->getRooms();
-                        var_dump($rooms);
-			//die();
-			//$this->view('NewRoom',array());
+			$listRooms = '<ul class="list-group">';
+
+			foreach ($rooms as $row) {
+				$listRooms .= '<li class="list-group-item">'.$row->Room.'</li>';
+			 }
+			$listRooms .= '</ul>';
+			return $listRooms;
 		}
 
 
 		public function newRoom(){
-			$this->view('NewRoom',array());
+			$listRooms = $this->getAllRooms();
+			$this->view('NewRoom',array('roomList'=>$listRooms));
 		}
 
 		public function saveRoom(){
