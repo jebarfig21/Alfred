@@ -66,13 +66,38 @@
                         <div class="card-header text-white bg-success">Agrega un Nodo nuevo</div>
                         <div class="card-body">
 				<form>
-                            		<div class="form-group">
+					<div class="form-group">
                               			<label for="sel1">Selecciona Cuarto:</label>
-                              			<select class="form-control" id="comboRoom" onchange="loadNodes()">
-                                			<option>Selecciona</option>
+                              			<select class="form-control" id="comboRoom" placeholder = "Selecciona un cuarto" onchange="loadNodes()">
+
                                 			<?php echo $comboRoom ?>
                               			</select>
+
+                              				<input id="text" style="display:none" type="text" class="form-control" placeholder="Escribe el nuevo cuarto" aria-describedby="nodeLabel" id="nodeName">
+
+						<label for="myCheck">Checkbox:</label> 
+						<input type="checkbox" id="myCheck" onclick="myFunction()">
+
 			      		</div>
+
+<script>
+	function myFunction() {
+  		// Get the checkbox
+  		var checkBox = document.getElementById("myCheck");
+  		// Get the output text
+  		var text = document.getElementById("text");
+ 		var selectRoom = document.getElementById("comboRoom");
+ 		// If the checkbox is checked, display the output text
+  		if (checkBox.checked == true){
+    			text.style.display = "block";
+			selectRoom.style.display = "none";
+  		} else {
+    			text.style.display = "none";
+			selectRoom.style.display = "block";
+  		}
+	}
+</script>
+
 
 					<!--Aqui hace falta otro select con los nodos que podemos seleccionar para agregar a nuestro proyecto-->
 
@@ -80,7 +105,7 @@
                               			<input type="text" class="form-control" placeholder="Escribe el alias del nodo" aria-describedby="nodeLabel" id="nodeName">
                               		</div>
 
-                            		<div class="buttons float-right"><!--DEbo de modificar este boton para que agregue el nodo-->
+                            		<div class="buttons float-right"><!--Debo de modificar este boton para que agregue el nodo-->
                                 		<button class="btn btn-md btn-success" id="saveRoom"><span class="fa fa-check"></span> Guardar</button>
                             		</div>
 				<form>
@@ -124,7 +149,6 @@
     <script src="config/sidebar.js"></script>
     <script src="js/frame.js"></script>
     <script src="js/NewNodo.js"></script>
-
 
 </body>
 </html>
