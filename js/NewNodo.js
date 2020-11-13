@@ -51,6 +51,32 @@ function saveRoom(){
 
 }
 
+
+function swtichAgregaSelecciona() {
+	// Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var text = document.getElementById("inputRoom");
+        var selectRoom = document.getElementById("comboRoom");
+        var lblSelect = document.getElementById("lblSel");
+        var lblInput = document.getElementById("lblInp");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+        	inputRoom.style.display = "block";
+                selectRoom.style.display = "none";
+                lblSelect.style.display = "none";       
+                lblInput.style.display = "block";
+        	 }
+	 else {
+               	inputRoom.style.display = "none";
+                selectRoom.style.display = "block";
+                lblInput.style.display = "none";
+                lblSelect.style.display = "block";
+         }
+}
+
+
 $( document ).ready(function() {
 	$('#openModal').click(function(){
 		$('#nodeName').val('');

@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
     <link rel="stylesheet" href="assets/jquery-confirm/jquery-confirm.min.css">
-    
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -59,47 +58,25 @@
 
         <div class="content pb-0">
 
-            <!-- Widgets  -->
+            <!-- Modulo de Nodo Nuevo  -->
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
-                        <div class="card-header text-white bg-success">Agrega un Nodo nuevo</div>
+                        <h4 class="card-header text-white bg-dark">Agrega un Nodo nuevo</h4>
                         <div class="card-body">
 				<form>
 					<div class="form-group">
-                              			<label for="sel1">Selecciona Cuarto:</label>
+                              			<label id="lblSel" for="sel1">Selecciona Cuarto:</label>
+						<label id="lblInp" for"sel2" style="display:none">Agrega Cuarto:</label>
                               			<select class="form-control" id="comboRoom" placeholder = "Selecciona un cuarto" onchange="loadNodes()">
-
-                                			<?php echo $comboRoom ?>
+			            			<?php echo $comboRoom ?>
                               			</select>
 
-                              				<input id="text" style="display:none" type="text" class="form-control" placeholder="Escribe el nuevo cuarto" aria-describedby="nodeLabel" id="nodeName">
-
-						<label for="myCheck">Checkbox:</label> 
-						<input type="checkbox" id="myCheck" onclick="myFunction()">
+                              			<input id="inputRoom" style="display:none" type="text" class="form-control" placeholder="Escribe el nuevo cuarto" aria-describedby="nodeLabel" id="nodeName">
+						<label for="myCheck" class="text-muted">Crear un cuarto nuevo:</label> 
+						<input type="checkbox" id="myCheck" onclick="swtichAgregaSelecciona()">
 
 			      		</div>
-
-<script>
-	function myFunction() {
-  		// Get the checkbox
-  		var checkBox = document.getElementById("myCheck");
-  		// Get the output text
-  		var text = document.getElementById("text");
- 		var selectRoom = document.getElementById("comboRoom");
- 		// If the checkbox is checked, display the output text
-  		if (checkBox.checked == true){
-    			text.style.display = "block";
-			selectRoom.style.display = "none";
-  		} else {
-    			text.style.display = "none";
-			selectRoom.style.display = "block";
-  		}
-	}
-</script>
-
-
-					<!--Aqui hace falta otro select con los nodos que podemos seleccionar para agregar a nuestro proyecto-->
 
 					<div class="form-group">
                               			<input type="text" class="form-control" placeholder="Escribe el alias del nodo" aria-describedby="nodeLabel" id="nodeName">
@@ -112,10 +89,12 @@
                           </div> <!--"card-body"-->
                     </div> <!--"card"-->
                 </div><!--"col"-->
+		<!--Fin del modulo de Nuevo Nodo -->
 
+		<!--Modulo de Nodos en el cuarto seleccionado -->
                 <div class="col-sm-6">
                     <div class="card">
-                        <div class="card-header">Nodos del cuarto</div>
+                        <h4 class="card-header text-white bg-dark">Nodos del cuarto</h4>
                         <div class="card-body">
                             <div class="table-responsive"></div>
                             <table id="nodesList" class="table-striped" width="100%">
@@ -123,6 +102,8 @@
                         </div>
                     </div>
                 </div>
+		<!--Fin Modulo de Nodos en el cuarto seleccionado -->
+
         </div> <!-- .content -->
 
 

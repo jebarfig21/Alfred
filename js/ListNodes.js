@@ -27,7 +27,7 @@ function updateNode(node_id, alias,rooms){
 	var inputID = [];
 	rooms = jQuery.parseJSON(rooms);
 
-	html += '<div class="input-group">'+
+	html += '<div class="input-group ">'+
                                 '<span class="input-group-text">Alias</span>'+
 		                '<input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="'+node_id+'" value="'+alias+'">'+
 		 '</div><br>'+
@@ -43,6 +43,11 @@ function updateNode(node_id, alias,rooms){
         					}
 
   			       	html+='</select>'+
+	      '<input id="inputRoom" style="display:none" type="text" class="form-control" placeholder="Escribe el nuevo cuarto" aria-describedby="nodeLabel" id="nodeName">'+
+ 		'</div><br>'+
+		'<div>'+
+			                        '<label for="myCheck" class="text-muted">Crear un cuarto nuevo  &nbsp;</label>' +
+                                                '<input type="checkbox" id="myCheck" onclick="swtichAgregaSelecciona()">'+
 		 '</div><br>';
 
 
@@ -62,29 +67,81 @@ function updateNode(node_id, alias,rooms){
 			btnClass: 'btn-success',
 			action: function(){
 				var newAlias = $("#"+node_id).val();
+				console.log($("#inputRoom").val());
+				console.log(isSelectShowed());
 				if (newAlias == "") {
 					alertWarning("Cuidado","Favor de llenar el nuevo Alias")
-				}else if (document.getElementById("selectRoom").selectedIndex==0){
-					updateData = {
-                                                id:node_id,
-                                                value:newAlias
-                                        }
-					sendToServer(updateData, 'Nodo', 'updateNode')
+				//Tomamos valores del select
+				}else if(isSelectShowed()){
+					if (document.getElementById("selectRoom").selectedIndex==0){
+						console.log(document.getElementById("selectRoom").selectedIndex);
+						console.log($("#inputRoom").val());	console.log("Hola Perritos");
+						updateData = {
+                                                	id:node_id,
+                                                	value:newAlias
+                                        	}
 
-				}else{
-					updateData = {
-						id:node_id,
-						value:newAlias,
-						room:document.getElementById("selectRoom").value
-					}
-					console.log(updateData);
+					}else{
+						updateData = {
+							id:node_id,
+							value:newAlias,
+							room:document.getElementById("selectRoom").value
+						}
 					sendToServer(updateData, 'Nodo', 'updateNode');
+					}
+				}else if(!isSelectShowed()){
+					if ($("#inputRoom").val()==""){
+						updateData = {
+                                                	id:node_id,
+                                                	value:newAlias
+                                        	}
+					}else{
+						updateData = {
+							id:node_id,
+							value:newAlias,
+							room:$("#inputRoom").val()
+					}
+				}
+				console.log(updateData);
+				sendToServer(updateData, 'Nodo', 'updateNode');
 				}
 			}
 		}
 	}
+
 	modalUpdate("Modificar "+alias, html, btn);
 }
+
+function swtichAgregaSelecciona() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var text = document.getElementById("inputRoom");
+        var selectRoom = document.getElementById("selectRoom");
+      
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+                inputRoom.style.display = "block";
+                selectRoom.style.display = "none"
+                 } 
+     else {
+                inputRoom.style.display = "none";
+                selectRoom.style.display = "block"
+         }
+}
+
+//True si select rooms esta mostrandose
+function isSelectShowed() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Si el select esta oculto y el input visible
+        if (checkBox.checked == true){
+		return false;
+                 }
+	return true;
+}
+
+
 
 function reviewNode(node_id, alias){
 	var node = {
