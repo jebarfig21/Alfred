@@ -159,16 +159,11 @@
 			*
 			*@return boolean | True si el query se ejecuto correctamente | False si el query se ejecuto con errores
 			*/
-			
                         if(count($column)==count($value)){
-				//TRABAJO PARA YISUS DEL FUTURO, terminar de hacer el update para todos los valores que se actualicen
 				for($i = 0 ; $i<count($value);$i++){
-					//$str += "UPDATE ". $this->table." SET ".$column[$i]." = '".$value[$i]."' WHERE ".$filter."=".$filterVal;
-					//$str += "UPDATE ";
 					$query=$this->db->query("UPDATE ". $this->table." SET ".$column[$i]." = '".$value[$i]."' WHERE ".$filter."=".$filterVal);
 
 				}
-				var_dump(count($value));die();
 				return true;
      			}
 			return false;
