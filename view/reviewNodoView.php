@@ -1,12 +1,13 @@
+<link rel="stylesheet" href="assets/css/charts/chartjsStyles.css">
+<link rel="stylesheet" type="text/css" href="assets/css/lib/dateTimePicker/jquery.datetimepicker.min.css">
 
 <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
 
     <ol class="carousel-indicators">
         <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselIndicators" data-slide-to="2"></li>        
+        <li data-target="#carouselIndicators" data-slide-to="2"></li>
 	<li data-target="#carouselIndicators" data-slide-to="3"></li>
-
     </ol>
 
     <div class="carousel-inner">
@@ -14,9 +15,22 @@
             <div class="card">
     	        <h4 class="card-header text-white bg-dark">Luminosidad</h4>
     	        <div class="card-body bg-secondary">
-        	    <?php echo $light; ?><br>
-	 		<canvas id="myChart"></canvas>
-    	        </div>
+        	    <?php echo $light; ?><br> 
+		    <div class="chartWrapper">
+  			<div class="chartAreaWrapper">
+  				<div class="chartAreaWrapper2">
+      					<canvas id="chartLight" height="300" width="1200"></canvas>
+  				</div>
+  			</div>
+  			<canvas id="axis-Test" height="300" width="0"></canvas>
+		    </div>
+		   <div class="input-group col-5">
+  			<div class="input-group-prepend">
+    				<span class="input-group-text fa fa-calendar" id="basic-addon1"></span>
+  			</div>	
+			<input type="text" class="form-control" id="DTpicker"  aria-describedby="basic-addon1"/>
+    		  </div>
+	        </div>
 	    </div>
         </div>
 
@@ -63,6 +77,7 @@
       <span class="sr-only">Next</span>
    </a>
 </div><!--carouselIndicator-->
+
 <script src="assets/js/chartjs.min.js"></script
 <script src="assets/js/lib/flot-chart/excanvas.min.js"></script>
 <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
@@ -74,4 +89,10 @@
 <script src="assets/js/lib/flot-chart/curvedLines.js"></script>
 <script src="assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js"></script>
 <script src="assets/js/lib/flot-chart/flot-chart-init.js"></script>
-<script src='js/charts/proof.js'></script>
+<script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>
+<script type="text/javascript">var valueLight = <?= $lightValues ?>; </script>
+<script type="text/javascript">var dateLight = <?=  $lightDates ?>; </script>
+<script src='js/charts/light.js'></script>
+<script src='js/dateTime/dateTimePicker.js'></script>
+
+<!--<script src='js/charts/humidity.js'></script>-->

@@ -123,6 +123,26 @@
 
 			return $resultSet;
 		}
+		public function getAllData($data){
+			/**
+                        *Funcion para obtener Todos los valores valores de algunas columas registros en $this->table, hay que recalcar que
+			* esta funcon realiza una query muy básica, no acepta multiples parametros, es decir, solo podremos verificar
+			* una columna, con un valor y un data
+			*@param String | $data | Las columna que queremos obtener
+                        *@param String | $column | El nombre de la columna en nuestra tabla(this->table) en la base de datos(Alfred)
+                        *@param String | $value | El valor que queremos que tengan los registros en $column
+                        *@return Array String | regresa un arreglo donde cada elemento es una fila de la tabla, donde  $column == $val$
+                        */
+
+			$query = $this->db->query("SELECT $data FROM $this->table");
+			$resultSet = [];
+
+			while ($row = $query->fetch_object()) {
+				$resultSet[] = $row;
+			}
+
+			return $resultSet;
+		}
 
 		public function deleteById($id){
 			/**

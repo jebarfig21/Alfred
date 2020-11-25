@@ -6,7 +6,6 @@ $( document ).ready(function() {
 
 function loadSideBar(){
 	var htmlString = '';
-	console.log(sidebar);
 	for(var section in sidebar){
 		htmlString += '<li class="menu-title">' + sidebar[section].title +'</li>';
 

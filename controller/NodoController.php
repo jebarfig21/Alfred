@@ -77,7 +77,6 @@ require_once "core/BaseController.php";
 		}
 
 		public function reviewNode(){
-
 			$data = json_decode($_POST['Data']);
 			$id = $data->{"id"};
                         $humidityObject=new Humidity();
@@ -85,14 +84,37 @@ require_once "core/BaseController.php";
 			$db=$humidityObject->db();
 			$lightObject=new Light($db);
 			$light = $lightObject->getLastValueByNode($id); 
+			$lightValues = $lightObject->getData("value","nodo_id",$id);
+			$lightValues = $this->fromObjectArrayToValuesJSON($lightValues,"value");
+			$lightDates  = $lightObject->getData("date","nodo_id",$id);
+			$lightDates  = $this->fromObjectArrayToValuesJSON($lightDates,"date");
 			$temperatureObject=new Temperature($db);
                         $temperature = $temperatureObject->getLastValueByNode($id); 
 			$presenceObject= new Presence($db);
 			$presence = $presenceObject->getLastValueByNode($id);
-			$this->view('reviewNodo', array("node_id" => $id,"light"=>$light,"humidity"=>$humidity,"temperature"=>$temperature,"presence"=>$presence));
+			$this->view('reviewNodo', array("node_id" => $id,
+							"light"=>$light,
+							"humidity"=>$humidity,
+							"temperature"=>$temperature,
+							"presence"=>$presence,
+							"lightValues"=>$lightValues,
+							"lightDates"=>$lightDates));
 
 		}
 
+		public function fromObjectArrayToValuesJSON($objArray,$value){
+                        $valueArr = array();
+			for($i = 0;$i<count($objArray);$i++){
+				array_push($valueArr,$objArray[$i]->$value);
+			}
+			return json_encode($valueArr);
+		}
+
+		public function getLast($arr){
+			$arr_len = count($arr);
+			return $arr[$arr_len-2];
+		}
 	}
+
 
 ?>
