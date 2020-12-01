@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="assets/css/charts/chartjsStyles.css">
 <link rel="stylesheet" type="text/css" href="assets/css/lib/dateTimePicker/jquery.datetimepicker.min.css">
 
-<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
 
     <ol class="carousel-indicators">
         <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
@@ -24,12 +24,27 @@
   			</div>
   			<canvas id="axis-Test" height="300" width="0"></canvas>
 		    </div>
-		   <div class="input-group col-5">
+		<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+         <div class="input-group">
   			<div class="input-group-prepend">
-    				<span class="input-group-text fa fa-calendar" id="basic-addon1"></span>
-  			</div>	
-			<input type="text" class="form-control" id="DTpicker"  aria-describedby="basic-addon1"/>
+    				<span class="input-group-text fa fa-calendar"></span>
+  			</div>
+			<input type="text" class="form-control DTpicker DTfrom" id="DTpicker-1"/>
+	</div>
+    </div>
+    <div class="col-sm">
+		   <div class="input-group">
+  			<div class="input-group-prepend">
+    				<span class="input-group-text fa fa-calendar"></span>
+  			</div>
+			<input type="text" class="form-control DTpicker DTto" id="DTpicker-2"/>
     		  </div>
+    </div>
+  </div>
+</div>
 	        </div>
 	    </div>
         </div>
@@ -94,5 +109,6 @@
 <script type="text/javascript">var dateLight = <?=  $lightDates ?>; </script>
 <script src='js/charts/light.js'></script>
 <script src='js/dateTime/dateTimePicker.js'></script>
+<script src='js/reviewNode.js'></script>
 
 <!--<script src='js/charts/humidity.js'></script>-->

@@ -1,4 +1,5 @@
 //$('#DTpicker').datetimepicker();
  $(document).ready(function() {
-        $('#DTpicker').datetimepicker();
+        //$('#DTpicker').datetimepicker();
+	$('.DTpicker').datetimepicker();
     });

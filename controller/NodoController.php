@@ -114,6 +114,11 @@ require_once "core/BaseController.php";
 			$arr_len = count($arr);
 			return $arr[$arr_len-2];
 		}
+		public function getValuesFromDate(){
+			var_dump("sisi a la chingada");
+			die();
+			return json_encode("Funciona la función");
+		}
 	}
 
 
