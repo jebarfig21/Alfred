@@ -3,9 +3,6 @@
 	class BaseController{
 
 		public function __construct(){
-			require_once 'Base.php';
-			require_once 'BaseModel.php';
-
 			foreach (glob("model/*.php") as $file) {
 				require_once $file;
 			}

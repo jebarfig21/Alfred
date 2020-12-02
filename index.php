@@ -1,5 +1,13 @@
 <?php
-    require_once "core/Base.php";
+
+ini_set('display_errors', 1);
+
+ini_set('display_startup_errors', 1);
+
+error_reporting(E_ALL);
+
+
+    //require_once "core/Base.php";
 
     require_once "core/BaseModel.php";
 

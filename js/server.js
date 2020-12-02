@@ -14,21 +14,15 @@ function sendToServer(jsobject, controller, action) {
         }
 	})
 }
-
 function getFromServer(jsobject, controller,action){
     var json = JSON.stringify(jsobject);
     var actionUrl = 'index.php?controller='+controller+'&action='+action;
 
-    $.ajax({
+    return $.ajax({
         type: "POST",
         url: actionUrl,
         data: {Data:json},
-	success: function(data){
-        	console.log('Exito');
-        },
-        error: function(){
-            alertDanger('Error');}
-    });
+    })
 }
 
 function modalView(jsobject, controller, action, title) {
