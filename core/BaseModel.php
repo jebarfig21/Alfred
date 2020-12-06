@@ -1,6 +1,7 @@
 <?php
+require_once 'ConnectDB.php';
 
-	class BaseModel {
+	class BaseModel extends Connect{
 		/**
 		*Código que sirve de "plantilla" o bien base, para los objetos del modelo
 		*
@@ -13,56 +14,17 @@
 		*@category core
 		*/
 
-		private $table, $db, $connect;
+		protected $table, $db;
 
-		public function __construct($table,$db = NULL) {
+		public function __construct($table) {
 			/**
                 	*Método constructor de  clase
 			*@param String | $table | Variable de tipo String, es elnombre de una tabla en la base de datos
                 	*@param Connect | $db | Variable de tipo connect (vease Alfred/core/DBConnect.php), la cual es una conexión a una base de datos
                 	*/
+			parent::__construct();
 			$this->table = (string) $table;
-                        if(is_null($db)){
-				require_once 'ConnectDB.php';
-                        	$this->connect = new Connect();
-                        	$this->db = $this->connect->connection(); /*Creando una conexión a la base de datos*/
-			}else{
-				$this->db=$db;
-                        }
-
-		}
-
-		public function getConnection(){
-			return $this->connect;
-		}
-
-		public function executeSql($query){
-                        /**
-                        *Funcion que ejecuta el query que se le pase como parametro
-                        *@param String | $query | query que se quiere ejecutar en la base de datos Alfred
-                        *@return Array String | Un arreglo de String, donde cada elemento va a ser un registro de la consulta realizada
-                        */
-                        $query = $this->db->query($query);
-
-                        if($query){
-                                if ($query->num_rows > 0) {
-                                        while ($row = $query->fetch_object()) {
-                                                $resultSet[] = $row;
-                                        }
-                                }
-                        }
-
-                        return $resultSet;
-                }
-
-	        
-
-
-		public function db() {
-			return $this->db;
-		}
-		public function closeConnection(){
-			return $this->db->close();
+			$this->db = parent::connection();
 		}
 
 		public function getAll() {
@@ -79,7 +41,7 @@
 			return $resultSet;
 		}
 
-                 public function getLastValueByNode($id_node) {
+                 public function getLastValueByNode($id_node,$tipo) {
 			/**
                         *Funcion para obtener el valor de value mas reciente de la tabla $this->value, de un nodo determinado, esta 
 			*función nos sirve para obtener el valor mas reciente de cada sensor de cada nodo
@@ -92,7 +54,8 @@
                         while($row = $query->fetch_object()){
                                 $resultSet[] = $row;
                         }
-                        return $resultSet[0]->value;
+			var_dump($this->table);
+			return $resultSet[0]->value;
                 }
 
 
@@ -135,7 +98,7 @@
                         *@param String | $value | El valor que queremos que tengan los registros en $column
                         *@return Array String | regresa un arreglo donde cada elemento es una fila de la tabla, donde  $column == $val$
                         */
-
+			
 			$query = $this->db->query("SELECT $data FROM $this->table WHERE $column = $value");
 			$resultSet = [];
 

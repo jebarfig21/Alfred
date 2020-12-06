@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="assets/css/charts/chartjsStyles.css">
 <link rel="stylesheet" type="text/css" href="assets/css/lib/dateTimePicker/jquery.datetimepicker.min.css">
-
 <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
 
     <ol class="carousel-indicators">
@@ -25,6 +24,7 @@
   			<canvas id="axis-Test" height="300" width="0"></canvas>
 		    </div>
 		<br>
+
 <div class="container">
   <div class="row">
     <div class="col-sm">
@@ -35,6 +35,7 @@
 			<input type="text" class="form-control DTpicker DTfrom" id="DTpicker-1"/>
 	</div>
     </div>
+
     <div class="col-sm">
 		   <div class="input-group">
   			<div class="input-group-prepend">
@@ -87,12 +88,12 @@
       <span class="sr-only">Previous</span>
    </a>
 
+
    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
    </a>
 </div><!--carouselIndicator-->
-
 <script src="assets/js/chartjs.min.js"></script
 <script src="assets/js/lib/flot-chart/excanvas.min.js"></script>
 <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
@@ -104,11 +105,20 @@
 <script src="assets/js/lib/flot-chart/curvedLines.js"></script>
 <script src="assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js"></script>
 <script src="assets/js/lib/flot-chart/flot-chart-init.js"></script>
+
 <script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>
+
+<script>console.log("Hola perras de reviewNodoView 1")</script>
+
 <script type="text/javascript">var valueLight = <?= $lightValues ?>; </script>
 <script type="text/javascript">var dateLight = <?=  $lightDates ?>; </script>
+<script>console.log("Hola perras de reviewNodoView 2")</script>
+
 <script src='js/charts/light.js'></script>
+
 <script src='js/dateTime/dateTimePicker.js'></script>
+
 <script src='js/reviewNode.js'></script>
+<script>console.log("Hola perras de reviewNodoView")</script>
 
 <!--<script src='js/charts/humidity.js'></script>-->

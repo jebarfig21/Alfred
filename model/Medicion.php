@@ -1,6 +1,6 @@
 <?php
 
-class Node extends BaseModel {
+class Medicion extends BaseModel {
 /**
 Clase de modelo para el manejo del Nodo
 
@@ -15,8 +15,8 @@ esta clase puede usar debera cosnultar tambien la documentación de estas dos cl
 
 **/
 
-	private $nodo_id, $room, $alias;
-	const TABLE = 'nodes';
+	private $nodo_id, $medicion_id, $tipo,$value, $date;
+	const TABLE = 'mediciones';
 
 	public function __construct(){
 		 /**
@@ -28,10 +28,10 @@ esta clase puede usar debera cosnultar tambien la documentación de estas dos cl
 	public function __get($name){
 		return $this->$name;
 	}
+
 	public function __set($name,$value){
 		$this->$name = $value;
 	}
-
 
 	public function save(){
 		 /**
@@ -52,23 +52,23 @@ esta clase puede usar debera cosnultar tambien la documentación de estas dos cl
 		return $save;
 	}
 
-	public function getRooms(){
-		 /**
-		* Este método  sirve para obtener una lista con todos los cuartos que tenemos registrados en nuestra tabla nodes,
-		*
-		* @return Array
-		* Un arreglo de String donde cada elemento pertenece a un cuarto diferente
-		*/
-		$query = $this->db->query("SELECT DISTINCT Room FROM nodes");
-		$resultSet = [];
+        public function getLastValueByNode($id_node,$tipo) {
+			/**
+                        *Funcion para obtener el valor de value mas reciente de la tabla $this->value, de un nodo determinado, esta 
+			*función nos sirve para obtener el valor mas reciente de cada sensor de cada nodo
+			*@param int-String | $id_node | es el id dentificador del nodo que queremos consultar
+                        *@return String | regresa un string con el ultimo valor de un nodo de nuestra $this->table
+                        */
+			$query = $this->db->query("SELECT * FROM $this->table WHERE nodo_id = ".$id_node." AND tipo = '$tipo' ORDER BY `date` DESC LIMIT 1");
+			//var_dump("SELECT * FROM $this->table WHERE nodo_id = ".$id_node." AND tipo = '$tipo' ORDER BY `date` DESC LIMIT 1");die();
+			//var_dump($query);die();
+			$resultSet = [];
+                        while($row = $query->fetch_object()){
+                                $resultSet[] = $row;
+                        }
+                        return $resultSet[0]->value;
+                }
 
-		while($row = $query->fetch_object()){
-			$resultSet[] = $row;
-		}
-
-		return $resultSet;
-
-	}
 }
 
 ?>

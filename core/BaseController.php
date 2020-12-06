@@ -9,6 +9,9 @@
 		}
 
 		public function view($view, $data){
+			/**
+			*Mandar $data en forma de arreglo asociativo a la vista
+			**/
 			foreach ($data as $id_assoc => $value) {
 				${$id_assoc}=$value;
 			}

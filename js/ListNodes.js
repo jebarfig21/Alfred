@@ -118,7 +118,6 @@ function swtichAgregaSelecciona() {
         // Get the output text
         var text = document.getElementById("inputRoom");
         var selectRoom = document.getElementById("selectRoom");
-      
         // If the checkbox is checked, display the output text
         if (checkBox.checked == true){
                 inputRoom.style.display = "block";
@@ -147,7 +146,7 @@ function reviewNode(node_id, alias){
 	var node = {
 		id:node_id
 	}
-	modalView(node, 'Nodo', 'reviewNode', alias);
+	modalView(node, 'Medicion', 'reviewNode', alias);
 }
 
 $(document).ready(function() {
