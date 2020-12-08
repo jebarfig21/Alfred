@@ -11,7 +11,7 @@ var sidebar = {
 						title: 'Lista',
 						icon: 'fa fa-address-book',
 						controller: 'Room',
-						action: 'index'
+						action: 'listAllRooms'
 					},
 					Create: {
 						title: 'Nuevo',
@@ -30,7 +30,7 @@ var sidebar = {
 						title: 'Lista',
 						icon: 'fa fa-address-book',
 						controller: 'Nodo',
-						action: 'index'
+						action: 'listAllNodes'
 					},
 					Create: {
 						title: 'Nuevo',

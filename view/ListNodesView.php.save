@@ -19,8 +19,7 @@
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
     <link rel="stylesheet" href="assets/jquery-confirm/jquery-confirm.min.css">
-     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
-    
+    <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -65,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            Cuartos Registrados
+                            Nodos Registrados
                         </div>
                         <div class="card-body">
                             <div id="responsive-card">
@@ -73,37 +72,43 @@
                                     <thead>
                                         <tr>
                                             <th>Cuarto</th>
-                                            <th>Nodos</th>
+                                            <th>Nodo</th>
                                             <th>Consultar</th>
                                             <th>Editar</th>
                                             <th>Eliminar</th>
                                         </tr>
                                     </thead>
-                                    <tbody> 
- 				   	<?php foreach ($rooms as $row) :?>
-
+                                    <tbody>
+                                        <!--<?php echo $tableContent;?>-->
+					<?php foreach ($nodes as $row) :?>
 
                                 	<tr>
-                                	<td align = "center"><?=$row->Room ?></td>
-                                	<td align = "center"><?=$row->numNodes ?></td>-->
-                                	<td align = "center">
-						<button class="btn btn-success" onclick="reviewRoom('<?= $row->Room?>')">
-                                			<span class="fa fa-search"></span>
-						</button>
-					</td>
-                                	<td align = "center">
-						<button class="btn btn-primary" onclick="updateRoom('<?= $row->Room?>')">
-                                			<span class="fa fa-cogs"></span>
-						</button>
-					</td>
-					<td align = "center">
-						<button class="btn btn-danger" onclick="eraseRoom('<?= $row->Room?>')">
-                                			<span class="fa fa-minus-circle"></span>
-						</button>
-					</td>
-                                </tr>
+                                		<td align = "center"><?php echo $row->Room?></td>
+                                		<td align = "center"><?php echo $row->Alias?> </td>
+                                		<td align = "center">
+							<button class="btn btn-success" onclick="reviewNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">';
+                                				<span class="fa fa-search"></span>
+							</button>
+						</td>
+						<td align = "center">
+							<button class="btn btn-primary" 
 
- 				<?php endforeach ?>
+			 					onclick="updateNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\',\''.htmlspecialchars($roomsJSON).'\')">
+                                				<span class="fa fa-cogs"></span>
+							</button>
+						</td>
+
+						<td align = "center">
+							<button class="btn btn-danger" 
+								onclick="eraseNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">
+								<span class="fa fa-minus-circle">
+							</button>
+						</td>
+                                	</tr>
+
+					<?php end
+foreach?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -116,23 +121,25 @@
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
 
-                <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Nuevo Nodo</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
-                        <span class="input-group-addon fa fa-book" id="nodeLabel"></span>
-                        <input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="nodeName">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
+            	<!-- Modal content-->
+            	<div class="modal-content">
+                	<div class="modal-header">
+                    		<button type="button" class="close" data-dismiss="modal">&times;</button>
+                    		<h4 class="modal-title">Nuevo Nodo</h4>
+                	</div>
+                
+			<div class="modal-body">
+                    		<div class="input-group">
+                        		<span class="input-group-addon fa fa-book" id="nodeLabel"></span>
+                        		<input type="text" class="form-control" placeholder="Alias56" aria-describedby="nodeLabel" id="nodeName">
+                    		</div>
+                	</div>
+
+	                <div class="modal-footer">
+        	            <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
+                	    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                	</div>
+            	</div>
 
             </div>
         </div>
@@ -170,11 +177,13 @@
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
 
 
+
+
     <script src="js/alerts.js"></script>
     <script src="js/server.js"></script>
     <script src="config/sidebar.js"></script>
     <script src="js/frame.js"></script>
-    <script src="js/RoomList.js"></script>
+    <script src="js/ListNodes.js"></script>
 
 
 </body>

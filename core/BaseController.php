@@ -7,8 +7,8 @@
 				require_once $file;
 			}
 		}
-
-		public function view($view, $data){
+		/**/
+		public function view($view, $data=NULL){
 			/**
 			*Mandar $data en forma de arreglo asociativo a la vista
 			**/

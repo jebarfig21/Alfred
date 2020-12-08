@@ -2,22 +2,38 @@
 require_once "core/BaseController.php";
 
 	class NodoController extends BaseController {
-		private $nodeObject;
 		public function __construct(){
 			parent::__construct();
- 			$this->nodeObject = new Node();
 		}
 
 		public function index(){
-}
-
-		public function listAllNodes(){
-			$listNodes = $this->nodeObject->getAll();
-			$rooms = $this->nodeObject->getRooms();
-			$roomsJSON = json_encode($rooms);
-			$this->view('ListNodes',array("nodes" => $listNodes, "rooms"=>$roomsJSON));
+			$htmlString = $this->listAllNodes();
+			$this->view('ListNodes',array("tableContent" => $htmlString));
 		}
 
+		public function listAllNodes(){
+			$nodeObject = new Node();
+
+			$nodes = $nodeObject->getAll();
+			$rooms = $nodeObject->getRooms();
+			$roomsJSON = json_encode($rooms);
+			$htmlString = '';
+
+			foreach ($nodes as $row) {
+
+				$htmlString .= '<tr>';
+				$htmlString .= '<td align = "center">'.$row->Room.'</td>';
+				$htmlString .= '<td align = "center">'.$row->Alias.'</td>';
+				$htmlString .= '<td align = "center"><button class="btn btn-success" onclick="reviewNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">';
+				$htmlString .= '<span class="fa fa-search"></span></button</td>';
+$htmlString .= '<td align = "center"><button class="btn btn-primary" onclick="updateNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\',\''.htmlspecialchars($roomsJSON).'\')">';
+				$htmlString .= '<span class="fa fa-cogs"></span></button</td>';
+				$htmlString .= '<td align = "center"><button class="btn btn-danger" onclick="eraseNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">';
+				$htmlString .= '<span class="fa fa-minus-circle"></button</td>';
+				$htmlString .= '</tr>';
+			}
+		return $htmlString;
+		}
 		public function newNode(){
 
 			$nodeObject = new Node();

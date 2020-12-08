@@ -10,27 +10,19 @@ require_once "model/Node.php";
 		}
 
 		public function index(){
+		}
+
+		public function listAllRooms(){
 			$nodeObject = new Node();
-
 			$rooms = $nodeObject->getRooms();
-			$htmlString = '';
+			$numNodes = array();
+			foreach($rooms as $row){
+				$row->numNodes = count($nodeObject->getBy('Room', $row->Room));
 
-			foreach ($rooms as $row) {
-				$numNodes = count($nodeObject->getBy('Room', $row->Room));
-
-				$htmlString .= '<tr>';
-				$htmlString .= '<td align = "center">'.$row->Room.'</td>';
-				$htmlString .= '<td align = "center">'.$numNodes.'</td>';
-				$htmlString .= '<td align = "center"><button class="btn btn-success" onclick="reviewRoom(\''.$row->Room.'\')">';
-				$htmlString .= '<span class="fa fa-search"></span></button</td>';
-				$htmlString .= '<td align = "center"><button class="btn btn-primary" onclick="updateRoom(\''.$row->Room.'\')">';
-				$htmlString .= '<span class="fa fa-cogs"></span></button</td>';
-				$htmlString .= '<td align = "center"><button class="btn btn-danger" onclick="eraseRoom(\''.$row->Room.'\')">';
-				$htmlString .= '<span class="fa fa-minus-circle"></button</td>';
-				$htmlString .= '</tr>';
 			}
 
-			$this->view('ListRoom',array("tableContent" => $htmlString));
+			$this->view('ListRoom',array("rooms" => $rooms));
+
 		}
 
 		public function getAllRooms(){
@@ -68,7 +60,7 @@ require_once "model/Node.php";
 
 				}else{
 					echo 'El cuarto ya existe';
-				}			
+				}
 
 			} else {
 				echo LOSE_INFO;

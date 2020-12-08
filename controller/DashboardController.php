@@ -1,4 +1,5 @@
 <?php
+
 require_once "core/BaseController.php";
 
 	class DashboardController extends BaseController {
@@ -7,8 +8,7 @@ require_once "core/BaseController.php";
 		}
 
 		public function index(){
-			$this->view('Dashboard',array(
-				"NodesData" => "hola"));
+			$this->view('Dashboard');
 		}
 	}
 

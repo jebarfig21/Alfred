@@ -25,8 +25,6 @@ function eraseNode(node_id, alias){
 function updateNode(node_id, alias,rooms){
 	var html = '';
 	var inputID = [];
-	rooms = jQuery.parseJSON(rooms);
-
 	html += '<div class="input-group ">'+
                                 '<span class="input-group-text">Alias</span>'+
 		                '<input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="'+node_id+'" value="'+alias+'">'+

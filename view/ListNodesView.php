@@ -19,8 +19,7 @@
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
     <link rel="stylesheet" href="assets/jquery-confirm/jquery-confirm.min.css">
-     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
-    
+    <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -80,7 +79,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php echo $tableContent;?>
+                                        <?php foreach ($nodes as $row) :?>
+
+                                	<tr>
+                                		<td align = "center"><?= $row->Room?></td>
+                                		<td align = "center"><?= $row->Alias?> </td>
+                                		<td align = "center">
+							<button class="btn btn-success" onclick="reviewNode(<?= $row->nodo_id?>,'<?= $row->Alias?>')">
+                                				<span class="fa fa-search"></span>
+							</button>
+						</td>
+						<td align = "center">
+							<button class="btn btn-primary"
+			 					onclick="updateNode(<?= $row->nodo_id?>, '<?=$row->Alias?>' ,<?=htmlspecialchars($rooms)?>)">
+                                				<span class="fa fa-cogs"></span>
+							</button>
+						</td>
+
+
+						<td align = "center">
+							<button class="btn btn-danger"
+								onclick="eraseNode(<?= $row->nodo_id?>,'<?=$row->Alias?>')">
+								<span class="fa fa-minus-circle">
+							</button>
+						</td>
+                                	</tr>
+
+					<?php endforeach?>
+
                                     </tbody>
                                 </table>
                             </div>

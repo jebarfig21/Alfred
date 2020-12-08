@@ -124,7 +124,8 @@
                                     <i class="pe-7f-users"></i>
                                 </div>
                                 <div class="stat-content">
-                                    <div class="text-left dib"> 
+                                    <div cl
+ass="text-left dib"> 
                                         <div class="stat-text"><span class="count">10</span></div>
                                         <div class="stat-heading">Presencia</div>
                                     </div>

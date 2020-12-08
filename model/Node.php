@@ -69,6 +69,7 @@ esta clase puede usar debera cosnultar tambien la documentación de estas dos cl
 		return $resultSet;
 
 	}
+	
 }
 
 ?>
