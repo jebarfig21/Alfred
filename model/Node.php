@@ -25,6 +25,7 @@ esta clase puede usar debera cosnultar tambien la documentación de estas dos cl
 		parent::__construct(self::TABLE);
 	}
 
+
 	public function __get($name){
 		return $this->$name;
 	}
@@ -69,7 +70,14 @@ esta clase puede usar debera cosnultar tambien la documentación de estas dos cl
 		return $resultSet;
 
 	}
-	
+
+	public function getLastMedition($id_node, $tipoMedicion){
+		$query = $this->db->query("SELECT * FROM mediciones WHERE nodo_id = ".$id_node." AND tipo = '$tipoMedicion' ORDER BY `date` DESC LIMIT 1");
+		return $query->fetch_object();
+
+	}
+
+
 }
 
 ?>

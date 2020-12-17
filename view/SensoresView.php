@@ -21,12 +21,13 @@
     <link rel="stylesheet" href="assets/jquery-confirm/jquery-confirm.min.css">
     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sensores.css">
 
 </head>
 <body>
 
 
-    <!-- Left Panel --> 
+    <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default"> 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -41,7 +42,7 @@
 
 
 
-    <!-- Right Panel --> 
+    <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
@@ -55,98 +56,33 @@
             </div>
         </header><!-- /header -->
         <!-- Header-->
+	<!--Start body right panel-->
+		<div>
+			<p class="h1 h1 pl-4 pt-3 "><?=ucfirst($nodos[0]->tipo);?></p>
+       		 </div>
 
+ 		<hr/>
+    		<div class="row">
 
-    <div class="content pb-0">
-
-            <!-- Content  -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            Nodos Registrados
-                        </div>
-                        <div class="card-body">
-                            <div id="responsive-card">
-                                <table id="table" class="table table-striped table-bordered display nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>Cuarto</th>
-                                            <th>Nodo</th>
-                                            <th>Consultar</th>
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!--<?php echo $tableContent;?>-->
-					<?php foreach ($nodes as $row) :?>
-
-                                	<tr>
-                                		<td align = "center"><?php echo $row->Room?></td>
-                                		<td align = "center"><?php echo $row->Alias?> </td>
-                                		<td align = "center">
-							<button class="btn btn-success" onclick="reviewNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">';
-                                				<span class="fa fa-search"></span>
-							</button>
-						</td>
-						<td align = "center">
-							<button class="btn btn-primary" 
-
-			 					onclick="updateNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\',\''.htmlspecialchars($roomsJSON).'\')">
-                                				<span class="fa fa-cogs"></span>
-							</button>
-						</td>
-
-						<td align = "center">
-							<button class="btn btn-danger" 
-								onclick="eraseNode(\''.$row->nodo_id.'\',\''.$row->Alias.'\')">
-								<span class="fa fa-minus-circle">
-							</button>
-						</td>
-                                	</tr>
-
-					<?php end
-foreach?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- .content -->
-
-
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-            	<!-- Modal content-->
-            	<div class="modal-content">
-                	<div class="modal-header">
-                    		<button type="button" class="close" data-dismiss="modal">&times;</button>
-                    		<h4 class="modal-title">Nuevo Nodo</h4>
-                	</div>
-                
-			<div class="modal-body">
-                    		<div class="input-group">
-                        		<span class="input-group-addon fa fa-book" id="nodeLabel"></span>
-                        		<input type="text" class="form-control" placeholder="Alias56" aria-describedby="nodeLabel" id="nodeName">
-                    		</div>
-                	</div>
-
-	                <div class="modal-footer">
-        	            <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
-                	    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                	</div>
-            	</div>
-
-            </div>
-        </div>
-
-
-
-        <div class="clearfix"></div>
+		<?php foreach($nodos as $nodo):?>
+		<div class="cards_item col-lg-4 col-md-6">
+      			<div class="card rounded shadow rounded ml-3 mr-3">
+				<div class="card-header my_card_header">
+    					<h1 class = "card_header_text"><?=$nodo->Alias;?></h1>
+  				</div>
+        			<div class="card_content">
+          				<h2 class="card_title"><?=$nodo->tipo;?></h2>
+          				<h1 class="card_text count">	<?=$nodo->value;?></h1>
+          				<h5 class="card_text2">	<?=$nodo->Room?></h5>
+          				<h6 class="card_text2">	<?=$nodo->date?></h6>	
+					<button class="btn card_btn">Read More</button>
+        			</div>
+      			</div>
+    		</div>
+    
+		<?php endforeach?>
+		</div><!--row-->
+    	
 
         <footer class="site-footer">
             <div class="footer-inner bg-white">

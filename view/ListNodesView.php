@@ -142,8 +142,6 @@
             </div>
         </div>
 
-
-
         <div class="clearfix"></div>
 
         <footer class="site-footer">
@@ -173,8 +171,6 @@
     <script src="assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
-
-
 
 
     <script src="js/alerts.js"></script>

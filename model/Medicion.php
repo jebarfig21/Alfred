@@ -29,16 +29,23 @@ ni crear, ni alterar las mediciones
 		$this->$name = $value;
 	}
 
-        public function getLastValueByNode($id_node,$tipo) {
-			/**
-                        *Funcion para obtener el valor de value mas reciente de la tabla $this->value, de un nodo determinado, esta 
-			*función nos sirve para obtener el valor mas reciente de cada sensor de cada nodo
-			*@param int-String | $id_node | es el id dentificador del nodo que queremos consultar
-                        *@return String | regresa un string con el ultimo valor de un nodo de nuestra $this->table
+
+ 	public function getValueByTipo($id,$tipo){
+                        /**
+                        *Funcion para obtener todos los registros de $this->table  para un determinado valor en alguna de las columnas$
+                        *@param String | $column | El nombre de la columna en nuestra tabla(this->table) en la base de datos(Alfred)
+                        *@param String | $value | El valor que queremos que tengan los registros en $column
+                        *@return Array String | regresa un arreglo donde cada elemento es una fila de la tabla, donde  $column == $val$
                         */
-			$query = $this->db->query("SELECT * FROM $this->table WHERE nodo_id = ".$id_node." AND tipo = '$tipo' ORDER BY `date` DESC LIMIT 1");
-                        return $query->fetch_object()->value;
+                        $query = $this->db->query("SELECT * FROM $this->table WHERE tipo = '$tipo' AND nodo_id = $id");
+                        $resultSet = [];
+                        while ($row = $query->fetch_object()) {
+                                $resultSet[] = $row;
+                        }
+			return $resultSet;
                 }
+
+
 
 }
 

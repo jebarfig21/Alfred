@@ -26,6 +26,13 @@ require_once 'ConnectDB.php';
 			$this->table = (string) $table;
 			$this->db = parent::connection();
 		}
+		public function __destruct(){
+			$closeResults = $this->db->close();
+   			 //make sure it closed
+    			if($closeResults === false){
+       				 echo "Could not close MySQL connection.";
+    			}
+		}
 
 		public function getAll() {
 			/**

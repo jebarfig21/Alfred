@@ -19,8 +19,7 @@
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
     <link rel="stylesheet" href="assets/jquery-confirm/jquery-confirm.min.css">
-     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
-    
+    <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -160,13 +159,16 @@
     <script src="assets/js/lib/data-table/datatables.min.js"></script>
     <script src="assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="assets/js/lib/data-table/pdfmake.min.js"></script>
-    <script src="assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
+                <script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+                    <script src="assets/js/lib/data-table/jszip.min.js"></script>
+                        <script src="assets/js/lib/data-table/pdfmake.min.js"></script>
+                            <script src="assets/js/lib/data-table/vfs_fonts.js"></script>
+                                <script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
+                                    <script src="assets/js/lib/data-table/buttons.print.min.js"></script>
+                                        <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
+                                            <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
+
+                                            
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
 
 

@@ -144,7 +144,8 @@ function reviewNode(node_id, alias){
 	var node = {
 		id:node_id
 	}
-	modalView(node, 'Medicion', 'reviewNode', alias);
+	console.log("hola desde ListNodes.js");
+	modalView(node, 'ReviewNode', 'reviewNode', alias);
 }
 
 $(document).ready(function() {

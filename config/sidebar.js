@@ -12,13 +12,8 @@ var sidebar = {
 						icon: 'fa fa-address-book',
 						controller: 'Room',
 						action: 'listAllRooms'
-					},
-					Create: {
-						title: 'Nuevo',
-						icon: 'fa fa-plus',
-						controller: 'Room',
-						action: 'newRoom'
 					}
+					
 				}
 			},
 
@@ -67,26 +62,26 @@ var sidebar = {
 					Temp: {
 						title: 'Temperatura',
 						icon: 'fa fa-address-book',
-						controller: 'Program',
-						action: 'index'
+						controller: 'Sensores',
+						action: 'getTemperatura'
 					},
 					Humedad: {
 						title: 'Humedad',
 						icon: 'fa fa-plus',
-						controller: 'Program',
-						action: 'Create'
+						controller: 'Sensores',
+						action: 'getHumedad'
 					},
 					Light: {
 						title: 'Luminosidad',
 						icon: 'fa fa-plus',
-						controller: 'Program',
-						action: 'Create'
+						controller: 'Sensores',
+						action: 'getLuminosidad'
 					},
 					Movement: {
-						title: 'Movimiento',
+						title: 'Presencia',
 						icon: 'fa fa-plus',
-						controller: 'Program',
-						action: 'Create'
+						controller: 'Sensores',
+						action: 'getPresencia'
 					}
 				}
 			}
