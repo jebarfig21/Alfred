@@ -53,7 +53,8 @@ $(document).ready(function () {
                 data: chart_data,
                 maintainAspectRatio: false,
                 responsive: true,
-                options: {
+                options: {}
+                /*
                     legends
                    : {
                         labels: {
@@ -61,7 +62,7 @@ $(document).ready(function () {
                             fontColor: 'white'
                         }
                      },
-                     scales
+                     scales*/
             });
          };
 
