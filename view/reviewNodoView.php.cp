@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="assets/css/charts/chartjsStyles.css">
 <link rel="stylesheet" type="text/css" href="assets/css/lib/dateTimePicker/jquery.datetimepicker.min.css">
 
@@ -75,18 +74,29 @@
       <span class="sr-only">Next</span>
    </a>
 </div><!--carouselIndicator-->
+
+<script src="">console.log("holi en review node");</script
 <script src="assets/js/chartjs.min.js"></script
 
-<script>console.log("holi en reviewNodoView");</script
+<script src="assets/js/lib/flot-chart/excanvas.min.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.time.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.stack.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.resize.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.crosshair.js"></script>
+<script src="assets/js/lib/flot-chart/curvedLines.js"></script>
+<script src="assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+<script src="assets/js/lib/flot-chart/flot-chart-init.js"></script>
 
 
 
 
 
-
-<!--<script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>-->
+<script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript">var mediciones = <?= json_encode($mediciones) ?>; </script>
 
 <script src='js/charts/grafica.js'></script>
+
+<script src='js/dateTime/dateTimePicker.js'></script>
 <script src='js/reviewNode.js'></script>
-<!--<script src='js/dateTime/dateTimePicker.js'></script>-->
