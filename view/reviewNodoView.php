@@ -25,7 +25,7 @@
     		<div class="card">
         		<h4 class="card-header text-white bg-dark"><?= ucfirst($tipo)?></h4>
     			<div class="card-body bg-secondary">
-    				<?= end($medicion)->value;?>
+    				<p class = "h6 text-white"> Actual : <?= end($medicion)->value;?></p>
 					<br>
     				<div id=<?=$tipo."chartArea"?> class="chartWrapper">
 					    <div class="chartAreaWrapper">
@@ -76,13 +76,6 @@
    </a>
 </div><!--carouselIndicator-->
 <script src="assets/js/chartjs.min.js"></script
-
-<script>console.log("holi en reviewNodoView");</script
-
-
-
-
-
 
 <!--<script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>-->
 <script type="text/javascript">var mediciones = <?= json_encode($mediciones) ?>; </script>

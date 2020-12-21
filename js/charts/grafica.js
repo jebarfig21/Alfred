@@ -7,7 +7,6 @@ $(document).ready(function () {
         let valuesHumidity = getValues(mediciones[tipo]);
         let datesHumidity = getDates(mediciones[tipo]);
         let chartData = getChartData(tipo,datesHumidity,valuesHumidity);
-        console.log("holi");
         makeChart(tipo,chartData);
     };
 });
@@ -53,16 +52,36 @@ $(document).ready(function () {
                 data: chart_data,
                 maintainAspectRatio: false,
                 responsive: true,
-                options: {}
-                /*
-                    legends
-                   : {
+                options: {
+                    legends: {
                         labels: {
-                            display: true,
+                            display:true,
                             fontColor: 'white'
                         }
-                     },
-                     scales*/
-            });
-         };
+                    },
+                    scales: {
+                        xAxes:[{
+                            ticks: {
+                                fontSize: 12,
+                                display: false
+                            }
+                        }],
+                        yAxes:[{
+                            ticks:{
+                                fontDize: 15,
+                                beginAtZero: true,
+                                fontColor: 'white'
+                            },
+                            scaleLabel: {
+                                display: true,
+                                color: 'rgb(255,255,255)',
+                                fontColor: 'rgb(255,255,255)',
+                                fontSize : 25,
+                                labelString: 'Valor'
+                            }
+                        }]
+                    }/*scales*/
+                }/*options*/
+            });/*chart L*/
+    };/*function makeChart*/
 

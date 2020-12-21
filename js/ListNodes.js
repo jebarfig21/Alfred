@@ -144,7 +144,6 @@ function reviewNode(node_id, alias){
 	var node = {
 		id:node_id
 	}
-	console.log("hola desde ListNodes.js");
 	modalView(node, 'ReviewNode', 'reviewNode', alias);
 }
 
