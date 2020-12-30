@@ -68,13 +68,13 @@
 		<div class="cards_item col-lg-4 col-md-6">
       			<div class="card rounded shadow rounded ml-3 mr-3">
 				<div class="card-header my_card_header">
-    					<h1 class = "card_header_text"><?=$nodo->Alias;?></h1>
+    					<p class = "card_header_text"><?=$nodo->Alias;?></p>
   				</div>
         			<div class="card_content">
           				<h2 class="card_title"><?=$nodo->tipo;?></h2>
-          				<h1 class="card_text count">	<?=$nodo->value;?></h1>
-          				<h5 class="card_text2">	<?=$nodo->Room?></h5>
-          				<h6 class="card_text2">	<?=$nodo->date?></h6>	
+          				<p class="valueData count">	<?=$nodo->value;?></p>
+          				<p class="roomText"><?=$nodo->Room?></p>
+          				<p class="dateText"><?=$nodo->date?></p>	
 					<button class="btn card_btn">Read More</button>
         			</div>
       			</div>
