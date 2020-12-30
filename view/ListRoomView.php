@@ -79,30 +79,31 @@
                                         </tr>
                                     </thead>
                                     <tbody> 
- 				   	<?php foreach ($rooms as $row) :?>
+ 				   	                    <?php foreach ($rooms as $row) :?>
+                                	        <tr>
+                                	            <td align = "center"><?=$row->Room ?></td>
+                                	            <td align = "center"><?=$row->numNodes ?></td>-->
 
+                                	            <td align = "center">
+						                            <button class="btn btn-success" onclick="reviewRoom('<?= $row->Room?>')">
+                                			            <span class="fa fa-search"></span>
+						                            </button>
+					                            </td>
 
-                                	<tr>
-                                	<td align = "center"><?=$row->Room ?></td>
-                                	<td align = "center"><?=$row->numNodes ?></td>-->
-                                	<td align = "center">
-						<button class="btn btn-success" onclick="reviewRoom('<?= $row->Room?>')">
-                                			<span class="fa fa-search"></span>
-						</button>
-					</td>
-                                	<td align = "center">
-						<button class="btn btn-primary" onclick="updateRoom('<?= $row->Room?>')">
-                                			<span class="fa fa-cogs"></span>
-						</button>
-					</td>
-					<td align = "center">
-						<button class="btn btn-danger" onclick="eraseRoom('<?= $row->Room?>')">
-                                			<span class="fa fa-minus-circle"></span>
-						</button>
-					</td>
-                                </tr>
+                                	            <td align = "center">
+						                            <button class="btn btn-primary" onclick="updateRoom('<?= $row->Room?>')">
+                                			            <span class="fa fa-cogs"></span>
+						                            </button>
+					                            </td>
 
- 				<?php endforeach ?>
+					                            <td align = "center">
+						                            <button class="btn btn-danger" onclick="eraseRoom('<?= $row->Room?>')">
+                                			            <span class="fa fa-minus-circle"></span>
+						                            </button>
+					                            </td>
+                                            </tr>
+
+ 				                        <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -110,33 +111,6 @@
                     </div>
                 </div>
             </div> <!-- .content -->
-
-
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Nuevo Nodo</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
-                        <span class="input-group-addon fa fa-book" id="nodeLabel"></span>
-                        <input type="text" class="form-control" placeholder="Alias" aria-describedby="nodeLabel" id="nodeName">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="addNode" class="btn btn-md btn-primary float-right" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus-circle"></span> Agregar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-
-            </div>
-        </div>
-
-
 
         <div class="clearfix"></div>
 
@@ -155,20 +129,19 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
-
+    
     <script src="assets/js/lib/data-table/datatables.min.js"></script>
     <script src="assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-                <script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-                    <script src="assets/js/lib/data-table/jszip.min.js"></script>
-                        <script src="assets/js/lib/data-table/pdfmake.min.js"></script>
-                            <script src="assets/js/lib/data-table/vfs_fonts.js"></script>
-                                <script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
-                                    <script src="assets/js/lib/data-table/buttons.print.min.js"></script>
-                                        <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
-                                            <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
+    <script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
 
-                                            
+    <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
 
 

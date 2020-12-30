@@ -69,17 +69,15 @@
       <span class="sr-only">Previous</span>
    </a>
 
-
    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
    </a>
 </div><!--carouselIndicator-->
-<script src="assets/js/chartjs.min.js"></script
 
+<script src="assets/js/chartjs.min.js"></script>
 <!--<script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>-->
 <script type="text/javascript">var mediciones = <?= json_encode($mediciones) ?>; </script>
-
 <script src='js/charts/grafica.js'></script>
 <script src='js/reviewNode.js'></script>
 <!--<script src='js/dateTime/dateTimePicker.js'></script>-->

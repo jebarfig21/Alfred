@@ -19,11 +19,12 @@ require_once "core/BaseController.php";
 			$nodos = $nodosModel->getAll();
 			foreach($nodos as $node){
 				$medicion = $nodosModel->getLastMedition($node->nodo_id,$tipo);
-				$value = $medicion->value;
-				$date = $medicion->date;
-				if($value == NULL){
+				if($medicion == NULL){
 					$value=00;
 					$date = "Sin registro";
+				}else{
+				    $value = $medicion->value;
+				    $date = $medicion->date;
 				}
 				$node->value = $value;
 				$node->date = $date;
