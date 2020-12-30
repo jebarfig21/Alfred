@@ -17,11 +17,12 @@
 
 	<div class="carousel-inner">
 	    <?php foreach ($mediciones as $tipo => $medicion):?>
-	    <?php if(array_search($tipo, array_keys($mediciones))==0):?>
-	        <div class="carousel-item active"> 
-	    <?php else: ?>
-	        <div class="carousel-item">
-	    <?php endif?>
+	        <?php if(array_search($tipo, array_keys($mediciones))==0):?>
+	            <div class="carousel-item active"> 
+	        <?php else: ?>
+	            <div class="carousel-item">
+	        <?php endif?>
+
     		<div class="card">
         		<h4 class="card-header text-white bg-dark"><?= ucfirst($tipo)?></h4>
     			<div class="card-body bg-secondary">
@@ -44,7 +45,7 @@
   						            <div class="input-group-prepend">
     							        <span class="input-group-text fa fa-calendar"></span>
   						            </div>
-						            <input type="text" class="form-control DTpicker DTfrom" id=<?=$tipo."DTpicker-1"?>/>
+						            <input type="text" class="form-control DTpicker DTfrom" id=<?=$tipo."DTpicker1"?>></input>
 					            </div>
     				        </div>
 
@@ -53,7 +54,7 @@
   						            <div class="input-group-prepend">
     							        <span class="input-group-text fa fa-calendar"></span>
   						            </div>
-						            <input type="text" class="form-control DTpicker DTto" id=<?=$tipo."DTpicker-2"?>/>
+						            <input type="text" class="form-control DTpicker DTto" id=<?=$tipo."DTpicker2"?>></input>
     		  			        </div>
     			    	    </div>
   			            </div>
@@ -76,8 +77,8 @@
 </div><!--carouselIndicator-->
 
 <script src="assets/js/chartjs.min.js"></script>
-<!--<script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>-->
+<script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript">var mediciones = <?= json_encode($mediciones) ?>; </script>
 <script src='js/charts/grafica.js'></script>
 <script src='js/reviewNode.js'></script>
-<!--<script src='js/dateTime/dateTimePicker.js'></script>-->
+<script src='js/dateTime/dateTimePicker.js'></script>
