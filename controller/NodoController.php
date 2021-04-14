@@ -9,7 +9,8 @@ require_once "core/BaseController.php";
 		}
 
 		public function index(){
-}
+
+        }
 
 		public function listAllNodes(){
 			$listNodes = $this->nodeObject->getAll();
@@ -59,34 +60,7 @@ require_once "core/BaseController.php";
 				echo 'No se pudo modificar el Nodo';
 			}
 		}
-/*
-		public function reviewNode(){
-			$data = json_decode($_POST['Data']);
-			$id = $data->{"id"};
 
-			$sensor= new Sensor("humedad");
-			$humidity = $sensor->getLastValueByNode($id);
-
-			$sensor=new Sensor("luminosidad");
-			$light = $sensor->getLastValueByNode($id); 
-			$lightValues = $sensor->getData("value","nodo_id",$id);
-			$lightValues = $this->fromObjectArrayToValuesJSON($lightValues,"value");
-			$lightDates  = $sensor->getData("date","nodo_id",$id);
-			$lightDates  = $this->fromObjectArrayToValuesJSON($lightDates,"date");
-			$sensor->setTipo("temperatura");
-			$temperature = $sensor->getLastValueByNode($id); 
-			$sensor->setTipo("presencia");
-			$presence = $sensor->getLastValueByNode($id);
-			$this->view('reviewNodo', array("node_id" => $id,
-							"light"=>$light,
-							"humidity"=>$humidity,
-							"temperature"=>$temperature,
-							"presence"=>$presence,
-							"lightValues"=>$lightValues,
-							"lightDates"=>$lightDates));
-
-		}
-*/
 		public function fromObjectArrayToValuesJSON($objArray,$value){
                         $valueArr = array();
 			for($i = 0;$i<count($objArray);$i++){
@@ -95,13 +69,20 @@ require_once "core/BaseController.php";
 			return json_encode($valueArr);
 		}
 
+
 		public function getLast($arr){
 			$arr_len = count($arr);
 			return $arr[$arr_len-2];
 		}
+
+
+
 		public function getValuesFromDate(){
-			echo("hola desde getValuesFromDateo");
-                       return json_encode("Funciona la función");
+		    json_decode($data);
+		    var_dump($data);die();
+		    //$values = $this->nodeObject->getValuesByDates($id,$tipo,$from,$to);
+			//echo($values);
+            //return json_encode($values);
 		}
 	}
 

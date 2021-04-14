@@ -84,14 +84,14 @@ body {
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #18B7C8 40%, #480F68 100%);
+  background: #007bff;
   position: relative;
   height: 100%;
 }
 
 .my_card_header {
 padding: 1rem;
-background: linear-gradient(to bottom left, #2A269F 40%, #480F68 100%);
+background: #003fff;
 
 }
 

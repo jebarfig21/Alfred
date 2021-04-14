@@ -77,6 +77,13 @@ esta clase puede usar debera cosnultar tambien la documentación de estas dos cl
 
 	}
 
+	public function getValuesByDates($id_node, $tipoMedicion, $from, $to){
+		$query = $this->db->query("SELECT * FROM mediciones WHERE nodo_id=".$id_node." AND tipo = '$tipoMedicion' AND  date BETWEEN '$from' AND '$to'");
+		return $query->fetch_object();
+	}
+
+
+
 
 }
 

@@ -1,9 +1,7 @@
 
 <link rel="stylesheet" href="assets/css/charts/chartjsStyles.css">
 <link rel="stylesheet" type="text/css" href="assets/css/lib/dateTimePicker/jquery.datetimepicker.min.css">
-
 <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
-
     <ol class="carousel-indicators">
     <?php foreach ($mediciones as $tipo => $medicion):?>
         <?php $index = array_search($tipo, array_keys($mediciones));?>
@@ -80,5 +78,7 @@
 <script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript">var mediciones = <?= json_encode($mediciones) ?>; </script>
 <script src='js/charts/grafica.js'></script>
+
 <script src='js/reviewNode.js'></script>
 <script src='js/dateTime/dateTimePicker.js'></script>
+
