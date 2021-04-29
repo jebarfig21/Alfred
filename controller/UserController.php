@@ -10,30 +10,44 @@ require_once "model/User.php";
 		}
 
 		public function index(){
-		    //echo("Index de user");
-            $this->view('Login',array());		
-		}
+
+            if(isset($_POST['Data'])){
+                $user = json_decode($_POST['Data']);
+                $email = $user->email;
+                $password = $user->password;
+                $this->login($email,$password);
+            }else{
+                $this->view('Login',array());
+            }
 
 
-        /**
-        *I need to remove this
-        */
-		public function newRoom(){
-			$listRooms = $this->getAllRooms();
-			$this->view('NewRoom',array('roomList'=>$listRooms));
-		}
+        }
 
 		/**
 		*Valid an existing user
 		*/
-		public function login(){
-			if(isset($_POST['Data'])){
-				$user = json_decode($_POST['Data']);
-				$userEmail = $user->{"email"};
-				$userPassword = $user->{"password"};
-		    }
+		public function login($email,$password){
+    		$userObject =new User();
+    		$user = ($userObject->getUserByEmail($email))[0];
+    		if($user->email==$email and $user->password==$password){
+                echo("Pasaste");
+                $_SESSSION['valid']=true;
+                $_SESSION['username']=$email;
+                $_SESSION['id']=$user->id_user;
+    		}else{
+               echo("no pasaste");
+    		}
 		}
 
+		/**
+		*Log out
+		**/
+        public function logout(){
+            session_destroy();
+            $this->view('Login',array());
+        }
+
+        
 		/*
         *Create new User
 		*/

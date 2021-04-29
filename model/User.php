@@ -57,10 +57,10 @@ esta clase puede usar debera consultar tambien la documentación de estas dos cl
 
 	public function getUsers(){
 		 /**
-		* Este método  sirve para obtener una lista con todos los cuartos que tenemos registrados en nuestra tabla nodes,
+		* Este método  sirve para obtener una lista con todos los usuraios que tenemos registrados,
 		*
 		* @return Array
-		* Un arreglo de String donde cada elemento pertenece a un cuarto diferente
+		* Un arreglo de String donde cada elemento pertenece a un usuario
 		*/
 		$query = $this->db->query("SELECT * FROM users");
 		$resultSet = [];
@@ -72,6 +72,24 @@ esta clase puede usar debera consultar tambien la documentación de estas dos cl
 		return $resultSet;
 
 	}
+
+	public function getUserByEmail($email){
+		 /**
+		* Este método  sirve para obtener un usuario por su email
+		*
+		* @return User
+		* 
+		*/
+		$query = $this->db->query("SELECT * FROM users WHERE email = '".$email."'");
+		$resultSet = [];
+
+		while($row = $query->fetch_object()){
+			$resultSet[] = $row;
+		}
+		return $resultSet;
+	}
+
+	
 
 }
 

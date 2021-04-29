@@ -1,7 +1,6 @@
 function sendToServer(jsobject, controller, action) {
 	var json = JSON.stringify(jsobject);
 	var actionUrl = 'index.php?controller='+controller+'&action='+action;
-
 	$.ajax({
 		type: "POST",
         url: actionUrl,

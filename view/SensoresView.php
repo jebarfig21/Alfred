@@ -46,15 +46,7 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header id="header" class="header">  
-            <div class="top-left">
-                <div class="navbar-header"> 
-                    <a class="navbar-brand" href="./"><img src="images/logo.jpg" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> 
-                </div> 
-            </div>
-        </header><!-- /header -->
+        <?php include_once 'HeaderRightPanel.php';?>
         <!-- Header-->
 	<!--Start body right panel-->
 		<div>

@@ -27,9 +27,9 @@ lang=""> <!--<![endif]--> <head>
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">LogIn</h5>
-                        <form method="POST" class="form-signin">
+                        <form class="form-signin">
                             <div class="form-label-group">
-                                <input name="email "type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                                 <label for="inputEmail">Email address</label>
                             </div>
 
@@ -43,7 +43,7 @@ lang=""> <!--<![endif]--> <head>
                                 <label class="custom-control-label" for="customCheck1">Remember password</label>
                             </div>
 
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick=sendCredentials()>Ingresar</button>
                             <hr class="my-4">
 
                         </form>
@@ -52,5 +52,21 @@ lang=""> <!--<![endif]--> <head>
             </div>
         </div>
     </div>
-</body>
+<script>console.log(document.getElementById("inputEmail"))</script>    
 
+
+<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
+
+<script src="js/Login.js"></script>
+<script src="js/server.js"></script>
+<script src="js/alerts.js"></script>
+
+
+
+
+
+</body>

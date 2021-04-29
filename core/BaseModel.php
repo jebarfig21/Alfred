@@ -48,12 +48,12 @@ require_once 'ConnectDB.php';
 			return $resultSet;
 		}
 
-                 public function getLastValueByNode($id_node,$tipo) {
-			/**
-                        *Funcion para obtener el valor de value mas reciente de la tabla $this->value, de un nodo determinado, esta 
-			*función nos sirve para obtener el valor mas reciente de cada sensor de cada nodo
-			*@param int-String | $id_node | es el id dentificador del nodo que queremos consultar
-                        *@return String | regresa un string con el ultimo valor de un nodo de nuestra $this->table
+        public function getLastValueByNode($id_node,$tipo) {
+	    /**
+        *Funcion para obtener el valor de value mas reciente de la tabla $this->value, de un nodo determinado, esta 
+        *función nos sirve para obtener el valor mas reciente de cada sensor de cada nodo
+	    *@param int-String | $id_node | es el id dentificador del nodo que queremos consultar
+        *@return String | regresa un string con el ultimo valor de un nodo de nuestra $this->table
                         */
 
 			$query = $this->db->query("SELECT * FROM $this->table WHERE nodo_id = ".$id_node." ORDER BY `date` DESC LIMIT 1");

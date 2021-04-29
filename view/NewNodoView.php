@@ -44,15 +44,7 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header id="header" class="header">  
-            <div class="top-left">
-                <div class="navbar-header"> 
-                    <a class="navbar-brand" href="./"><img src="images/logo.jpg" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> 
-                </div> 
-            </div>
-        </header><!-- /header -->
+        <?php include_once 'HeaderRightPanel.php';?>
         <!-- Header-->
 
 
@@ -64,29 +56,29 @@
                     <div class="card">
                         <h4 class="card-header text-white bg-dark">Agrega un Nodo nuevo</h4>
                         <div class="card-body">
-				<form>
-					<div class="form-group">
+				            <form>
+					            <div class="form-group">
                               			<label id="lblSel" for="sel1">Selecciona Cuarto:</label>
-						<label id="lblInp" for"sel2" style="display:none">Agrega Cuarto:</label>
+						                <label id="lblInp" for"sel2" style="display:none">Agrega Cuarto:</label>
                               			<select class="form-control" id="comboRoom" placeholder = "Selecciona un cuarto" onchange="loadNodes()">
-			            			<?php echo $comboRoom ?>
+			            			        <?php echo $comboRoom ?>
                               			</select>
 
                               			<input id="inputRoom" style="display:none" type="text" class="form-control" placeholder="Escribe el nuevo cuarto" aria-describedby="nodeLabel" id="nodeName">
-						<label for="myCheck" class="text-muted">Crear un cuarto nuevo:</label> 
-						<input type="checkbox" id="myCheck" onclick="swtichAgregaSelecciona()">
+						                    <label for="myCheck" class="text-muted">Crear un cuarto nuevo:</label> 
+						                <input type="checkbox" id="myCheck" onclick="swtichAgregaSelecciona()">
 
-			      		</div>
+			      		        </div>
 
-					<div class="form-group">
-                              			<input type="text" class="form-control" placeholder="Escribe el alias del nodo" aria-describedby="nodeLabel" id="nodeName">
-                              		</div>
+					            <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Escribe el alias del nodo" aria-describedby="nodeLabel" id="nodeName">
+                                </div>
 
-                            		<div class="buttons float-right"><!--Debo de modificar este boton para que agregue el nodo-->
-                                		<button class="btn btn-md btn-success" id="saveRoom"><span class="fa fa-check"></span> Guardar</button>
-                            		</div>
-				<form>
-                          </div> <!--"card-body"-->
+                    		    <div class="buttons float-right"><!--Debo de modificar este boton para que agregue el nodo-->
+                           		    <button class="btn btn-md btn-success" id="saveRoom"><span class="fa fa-check"></span> Guardar</button>
+                    		    </div>
+				            </form>
+                        </div> <!--"card-body"-->
                     </div> <!--"card"-->
                 </div><!--"col"-->
 		<!--Fin del modulo de Nuevo Nodo -->

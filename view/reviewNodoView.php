@@ -78,7 +78,6 @@
 <script src="assets/js/lib/date-time/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript">var mediciones = <?= json_encode($mediciones) ?>; </script>
 <script src='js/charts/grafica.js'></script>
-
 <script src='js/reviewNode.js'></script>
 <script src='js/dateTime/dateTimePicker.js'></script>
 
