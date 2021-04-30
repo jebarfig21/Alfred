@@ -12,8 +12,10 @@
 			/**
 			*Mandar $data en forma de arreglo asociativo a la vista
 			**/
-			foreach ($data as $id_assoc => $value) {
-				${$id_assoc}=$value;
+			if(!is_null($data)){
+			    foreach ($data as $id_assoc => $value) {
+			    	${$id_assoc}=$value;
+			    }
 			}
 
 			require_once 'view/'.$view.'View.php';

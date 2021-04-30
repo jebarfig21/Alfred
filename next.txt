@@ -1,1 +1,2 @@
-acomodar bien boton de logout
+acomodar bien boton de logout, cambiar todos los left-side
+
