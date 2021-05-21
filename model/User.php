@@ -44,14 +44,14 @@ esta clase puede usar debera consultar tambien la documentación de estas dos cl
 		* False, si no se logró completar correctamente el query
 		*/
 
+
 		$query = "INSERT INTO `users`(`name`, `email`,`password`,`role`) VALUES ('"
 		.$this->name."','"
 	    .$this->email."','"
 		.$this->password."','"
 		.$this->role."')";
 
-		$save = $this->db->query($query);
-
+   		$save = $this->db->query($query);
 		return $save;
 	}
 

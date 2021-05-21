@@ -14,7 +14,7 @@ require_once "model/User.php";
             if(isset($_POST['Data'])){
                 $user = json_decode($_POST['Data']);
                 $email = $user->email;
-                $password = $user->password;
+                $password = hash('sha256',$user->password);
                 $this->login($email,$password);
             }else{
                 $this->view('Login',array());
@@ -30,7 +30,6 @@ require_once "model/User.php";
     		$userObject =new User();
     		$user = ($userObject->getUserByEmail($email))[0];
     		if($user->email==$email and $user->password==$password){
-                echo("Pasaste");
                 $_SESSSION['valid']=true;
                 $_SESSION['username']=$email;
                 $_SESSION['id']=$user->id_user;
@@ -47,7 +46,6 @@ require_once "model/User.php";
             $this->view('Login',array());
         }
 
-        
 		/*
         *Create new User
 		*/
@@ -58,5 +56,44 @@ require_once "model/User.php";
 				$userPassword = $user->{"password"};
 		    }
 	    }
-}
+
+	    public function settings(){
+            $this->view('Settings',array());
+	    }
+	    
+		/**
+		*Add new user view
+		**/
+        public function addUser(){
+            $this->view('addUser',array());
+        }
+        
+		/**
+		*Add new user view
+		**/
+        public function addUserDB(){
+            if(isset($_POST['Data'])){
+                $newUser  = json_decode($_POST['Data']);
+                $name    = $newUser->{"name"};
+                $email    = $newUser->{"email"};
+                $password = $newUser->{"password"};
+                $role    = $newUser->{"rol"};
+                $userObject = new User();
+
+                $userObject->name  = $name;
+                $userObject->email = $email;
+                $userObject->password = hash('sha256',$password);
+                $userObject->role = $role;
+
+                if (count($userObject->getBy('email',$email)) == 0){
+                    $userObject->save();
+                }
+                echo 'Se ha guardado correctamente';
+
+                }else{
+                    echo 'El cuarto ya existe';
+                }
+            }
+
+        }
 ?>

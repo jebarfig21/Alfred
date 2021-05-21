@@ -9,7 +9,7 @@
     require_once "core/FrontControl.php";
     session_start();
     $indexControl = new FrontControl();
-    var_dump($_SESSION);
+    
     if(empty($_SESSION)){//Aqui va el login
 	    $controllerObj = $indexControl->loadController("User");
 	    $indexControl->Action($controllerObj);

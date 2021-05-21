@@ -1,4 +1,6 @@
+
 <?php
+//Configuración de conexión a la base de datos
 	return array(
 		"driver" 	=> "mysqli",
 		"host" 		=> "localhost",

@@ -13,6 +13,17 @@ function sendToServer(jsobject, controller, action) {
         }
 	})
 }
+
+function sendToServerSilence(controller, action) {
+	var actionUrl = 'index.php?controller='+controller+'&action='+action;
+	$.ajax({
+		type: "POST",
+        url: actionUrl,
+        data: {}
+	})
+	location.reload();
+}
+
 function getFromServer(jsobject, controller,action){
     var json = JSON.stringify(jsobject);
     var actionUrl = 'index.php?controller='+controller+'&action='+action;

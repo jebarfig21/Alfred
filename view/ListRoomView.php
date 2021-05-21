@@ -13,16 +13,7 @@
 
 
     <!-- Left Panel --> 
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default"> 
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav" id="SideBar">
-                    <li class="active" id="main-option">
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside><!-- /#left-panel --> 
+        <?php include_once 'LeftPanel.php';?>
     <!-- Left Panel -->
 
 
@@ -118,7 +109,6 @@
     <script src="assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
 
-    <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
 
 

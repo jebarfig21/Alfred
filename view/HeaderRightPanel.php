@@ -9,10 +9,10 @@
     </div>
 
     <div class="top-right" style="float: right;  margin-top: .5%;">
-        <button type="button" class="btn btn-danger" >Salir</button>
-    </div>        
+        <button type="button" class="btn btn-danger" onclick=logout()>Salir</button>
+    </div>
 
-                               
+
 </header><!-- /header -->
                                                                                                                                             <!-- Header-->
-                                                                                                                                            
+<script src="js/Logout.js"></script>

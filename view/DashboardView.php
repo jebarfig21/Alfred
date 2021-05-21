@@ -151,6 +151,7 @@ ass="text-left dib">
 
     <script src="config/sidebar.js"></script>
     <script src="js/frame.js"></script>
+    <script src="js/server.js"></script>
 
 
 </body>

@@ -9,13 +9,12 @@ require_once "core/BaseController.php";
 		}
 
 		public function reviewNode(){
-                        $data = json_decode($_POST['Data']);
-                        $id = $data->{"id"};
+            $data = json_decode($_POST['Data']);
+            $id = $data->{"id"};
 			$tipos = array("humedad"=> NULL,"temperatura"=>  NULL,"luminosidad"=>  NULL,"presencia"=>  NULL);
 			foreach($tipos as $tipo => $value){
 				$allValues = $this->medicion->getValueByTipo($id,$tipo);
 				$tipos[$tipo] = $allValues;
-				//var_dump($tipos);die();
 			}
 			$this->view('reviewNodo', array("mediciones" => $tipos));
 

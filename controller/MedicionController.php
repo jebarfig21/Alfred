@@ -9,13 +9,8 @@ require_once "core/BaseController.php";
 			$this->medicion= new Medicion();
 		}
 
-		public function index(){
-
-		}
-
-
 		public function fromObjectArrayToValuesJSON($objArray,$value){
-                        $valueArr = array();
+            $valueArr = array();
 			for($i = 0;$i<count($objArray);$i++){
 				array_push($valueArr,$objArray[$i]->$value);
 			}
@@ -26,11 +21,9 @@ require_once "core/BaseController.php";
 			$arr_len = count($arr);
 			return $arr[$arr_len-2];
 		}
+
 		public function getValuesFromDate(){
-			echo("hola desde getValuesFromDateo");
-                       return json_encode("Funciona la función");
+            return json_encode("Funciona la función");
 		}
 	}
-
-
 ?>

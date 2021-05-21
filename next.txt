@@ -1,2 +1,2 @@
-acomodar bien boton de logout, cambiar todos los left-side
+Arreglar código de vista de add user, poder agregar usuarios y configurar modulo de envio de correo, poder editar contraseñla desde settings
 

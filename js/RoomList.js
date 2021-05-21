@@ -84,8 +84,6 @@ function showNodes(obj, roomName){
 			}
 		}
 	}
-
-
 	modalUpdate("Modificar "+roomName, html, btn);
 }
 

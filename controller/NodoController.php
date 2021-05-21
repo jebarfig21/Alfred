@@ -21,8 +21,8 @@ require_once "core/BaseController.php";
 
 		public function newNode(){
 
-			$nodeObject = new Node();
-			$roomNames = $nodeObject->getRooms();
+			//$nodeObject = new Node();
+			$roomNames = $this->nodeObject->getRooms();
 			$roomNamesHTML = '';
 
 			foreach ($roomNames as $row) {

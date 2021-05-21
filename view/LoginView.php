@@ -14,7 +14,7 @@ lang=""> <!--<![endif]-->
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">LogIn</h5>
-                        <form class="form-signin">
+                        <form class="form-signin" method="POST">
                             <div class="form-label-group">
                                 <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                                 <label for="inputEmail">Email address</label>
@@ -39,8 +39,6 @@ lang=""> <!--<![endif]-->
             </div>
         </div>
     </div>
-<script>console.log(document.getElementById("inputEmail"))</script>    
-
 
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="assets/js/popper.min.js"></script>

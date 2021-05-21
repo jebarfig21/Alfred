@@ -38,6 +38,6 @@ function loadSideBar(){
 
 function setFooter(){
 	var year = new Date().getFullYear();
-	var footer = '<div class="col-sm-6">Copyright &copy; '+year+' - Alfred</div><div class="col-sm-6 text-right">Diseñado por <a href="#">Alfonso</a></div>';
+	var footer = '<div class="col-sm-6">Copyright &copy; '+year+' - Alfred</div><div class="col-sm-6 text-right">Diseñado por <a href="#">Alfonso y Jesus</a></div>';
 	$('#footer').append(footer);
 }
